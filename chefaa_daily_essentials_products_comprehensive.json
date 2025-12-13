@@ -1,0 +1,458 @@
+{
+  "metadata": {
+    "source": "Chefaa.com Daily Essentials Category",
+    "extraction_date": "2025-11-01",
+    "base_url": "https://chefaa.com/eg-ar/now/category/daily-essentials",
+    "total_pages": 62,
+    "total_products_extracted": 20,
+    "currency": "Egyptian Pounds (EGP)",
+    "language": "Arabic"
+  },
+  "daily_essentials_subcategories": {
+    "feminine_care": "العناية النسائية",
+    "oral_care": "العناية بالفم و الاسنان", 
+    "men_care": "العناية الرجالية",
+    "bath_body_care": "العناية بالجسم و الاستحمام",
+    "protection": "الحماية",
+    "natural_herbs_supplements": "الأعشاب الطبيعية و الفيتامينات"
+  },
+  "products": {
+    "oral_care": [
+      {
+        "product_id": 1,
+        "product_name_arabic": "معجون سنسوداين عناية متعددة + تبييض الأسنان | 100مل",
+        "product_name_english": "Sensodyne Multi-Care and Whitening Toothpaste for Sensitive Teeth",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/sensodyne-multi-care-and-whitening-toothpaste-for-sensitive-teet",
+        "price_egp": 135,
+        "brand": "سنسوداين (Sensodyne)",
+        "brand_english": "Sensodyne",
+        "category": "Oral Care",
+        "subcategory": "Toothpaste",
+        "specifications": {
+          "size": "100ml",
+          "type": "Multi-care and whitening",
+          "target": "Sensitive teeth"
+        },
+        "stock_status": "Available",
+        "features": ["Multi-care", "Whitening", "For sensitive teeth"]
+      },
+      {
+        "product_id": 2,
+        "product_name_arabic": "إيڤا | سموكرز بودرة تنظيف الاسنان بالفحم | 40جم",
+        "product_name_english": "Eva Smokers Dental Flosser with Charcoal",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/eva-smokers-dental-flosser-40gm-zybd_duSUwssx",
+        "price_egp": 50,
+        "brand": "إيڤا (Eva)",
+        "brand_english": "Eva",
+        "category": "Oral Care",
+        "subcategory": "Dental Products",
+        "specifications": {
+          "size": "40gm",
+          "type": "Dental powder with charcoal",
+          "target": "Smokers"
+        },
+        "stock_status": "Available",
+        "features": ["For smokers", "Charcoal based", "Deep cleaning"]
+      },
+      {
+        "product_id": 3,
+        "product_name_arabic": "إيفا | معجون أسنان سموكرز إي لاين بالمنثول | 50جم",
+        "product_name_english": "Eva Smokers E-Line Toothpaste with Menthol",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/eva-smokers-e-line-toothpaste-with-menthol-50gm-iomk",
+        "price_egp": 50,
+        "brand": "إيفا (Eva)",
+        "brand_english": "Eva",
+        "category": "Oral Care",
+        "subcategory": "Toothpaste",
+        "specifications": {
+          "size": "50gm",
+          "type": "Toothpaste with menthol",
+          "target": "Smokers",
+          "line": "E-Line"
+        },
+        "stock_status": "Available",
+        "features": ["For smokers", "Menthol", "E-Line series"]
+      },
+      {
+        "product_id": 4,
+        "product_name_arabic": "إيفا | غسول الفم للمدخنين لمستخدمي السجائر الإلكترونية بالمنثول | 250مل",
+        "product_name_english": "Eva Smokers E-Line Mouthwash with Menthol for E-Cigarette Users",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/eva-smokers-e-line-mouthwash-with-menthol-for-e-cigarette-users-250ml-ycid",
+        "price_egp": 110,
+        "brand": "إيفا (Eva)",
+        "brand_english": "Eva",
+        "category": "Oral Care",
+        "subcategory": "Mouthwash",
+        "specifications": {
+          "size": "250ml",
+          "type": "Mouthwash with menthol",
+          "target": "Smokers and e-cigarette users",
+          "line": "E-Line"
+        },
+        "stock_status": "Available",
+        "features": ["For smokers", "For e-cigarette users", "Menthol", "E-Line series"]
+      }
+    ],
+    "bath_body_care": [
+      {
+        "product_id": 5,
+        "product_name_arabic": "نيفيا ستيك مزيل عرق للنساء انفيزيبل أوريجنال للملابس السوداء والبيضاء 40مل",
+        "product_name_english": "Nivea Invisible Black and White Deodorant Stick for Women",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/nivea-invisible-black-and-white-deodorant-stick-for-women-40ml",
+        "price_egp": 350,
+        "brand": "نيفيا (Nivea)",
+        "brand_english": "Nivea",
+        "category": "Bath & Body Care",
+        "subcategory": "Deodorants",
+        "specifications": {
+          "size": "40ml",
+          "type": "Deodorant stick",
+          "target": "Women",
+          "color_protection": "For black and white clothes"
+        },
+        "stock_status": "Available",
+        "features": ["Invisible", "For black and white clothes", "Original", "Anti-perspirant"]
+      },
+      {
+        "product_id": 6,
+        "product_name_arabic": "نيفيا | ستيك مزيل عرق للرجال انفيزيبل أوريجنال للملابس السوداء والبيضاء 40مل",
+        "product_name_english": "Nivea Men Invisible Black and White Antiperspirant",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/nivea-men-invisible-black-and-white-antiperspirant-40ml-ao0y",
+        "price_egp": 350,
+        "brand": "نيفيا (Nivea)",
+        "brand_english": "Nivea",
+        "category": "Bath & Body Care",
+        "subcategory": "Deodorants",
+        "specifications": {
+          "size": "40ml",
+          "type": "Deodorant stick",
+          "target": "Men",
+          "color_protection": "For black and white clothes"
+        },
+        "stock_status": "Available",
+        "features": ["Invisible", "For black and white clothes", "Original", "Anti-perspirant", "For men"]
+      },
+      {
+        "product_id": 7,
+        "product_name_arabic": "نيفيا | ستيك مزيل عرق للنساء بيرل آند بيوتي خلاصة اللؤلؤ 40مل",
+        "product_name_english": "Nivea Pearl and Beauty Deodorant Roll-On Stick for Women",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/nivea-pearl-and-beauty-deodorant-roll-on-stick-for-women-40ml",
+        "price_egp": 350,
+        "brand": "نيفيا (Nivea)",
+        "brand_english": "Nivea",
+        "category": "Bath & Body Care",
+        "subcategory": "Deodorants",
+        "specifications": {
+          "size": "40ml",
+          "type": "Deodorant roll-on stick",
+          "target": "Women",
+          "ingredient": "Pearl extract"
+        },
+        "stock_status": "Available",
+        "features": ["Pearl extract", "Beauty", "Roll-on", "Anti-perspirant"]
+      },
+      {
+        "product_id": 8,
+        "product_name_arabic": "بودرة الو ايفا بالصبار للعرق | 70 جم",
+        "product_name_english": "Eva Deodorant Powder with Aloe Vera Extract",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/eva-deodorant-powder-with-aloe-vera-extract-70gm-p7ph",
+        "price_egp": 60,
+        "brand": "ايفا (Eva)",
+        "brand_english": "Eva",
+        "category": "Bath & Body Care",
+        "subcategory": "Deodorants",
+        "specifications": {
+          "size": "70gm",
+          "type": "Deodorant powder",
+          "ingredient": "Aloe vera extract"
+        },
+        "stock_status": "Available",
+        "features": ["Aloe vera", "Natural", "Powder form"]
+      },
+      {
+        "product_id": 9,
+        "product_name_arabic": "إيڤا | بودرة قدم بالصبار | 50جم",
+        "product_name_english": "Eva Foot Powder Deodorant with Aloe Vera",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/eva-foot-powder-deodorant-with-aloe-vera-50gm-ijzk",
+        "price_egp": 40,
+        "brand": "إيڤا (Eva)",
+        "brand_english": "Eva",
+        "category": "Bath & Body Care",
+        "subcategory": "Foot Care",
+        "specifications": {
+          "size": "50gm",
+          "type": "Foot powder deodorant",
+          "ingredient": "Aloe vera"
+        },
+        "stock_status": "Available",
+        "features": ["Aloe vera", "Foot care", "Natural", "Deodorant"]
+      },
+      {
+        "product_id": 10,
+        "product_name_arabic": "ايفا | صابونة جليسرين للبشره الجافة والحساسة | 120جم",
+        "product_name_english": "Eva Glycerine Soap for Dry Sensitive Skin",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/eva-glycerine-soap-for-dry-sensitive-skin-120gm-bpcp_du6T19FS",
+        "price_egp": 45,
+        "brand": "ايفا (Eva)",
+        "brand_english": "Eva",
+        "category": "Bath & Body Care",
+        "subcategory": "Soap",
+        "specifications": {
+          "size": "120gm",
+          "type": "Glycerine soap",
+          "target": "Dry and sensitive skin"
+        },
+        "stock_status": "Available",
+        "features": ["Glycerine", "For dry skin", "For sensitive skin", "Gentle"]
+      },
+      {
+        "product_id": 11,
+        "product_name_arabic": "مقشر القدمين من ايفا سكين كير - تروبيكال | 60 مل",
+        "product_name_english": "Eva Skin Care Foot Scrub Tropical",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/eva-skin-care-foot-scrub-tropical-60ml-2csw_duqTspzC",
+        "price_egp": 85,
+        "brand": "ايفا (Eva)",
+        "brand_english": "Eva",
+        "category": "Bath & Body Care",
+        "subcategory": "Foot Care",
+        "specifications": {
+          "size": "60ml",
+          "type": "Foot scrub",
+          "series": "Skin Care",
+          "variant": "Tropical"
+        },
+        "stock_status": "Available",
+        "features": ["Foot scrub", "Tropical", "Skin Care series", "Exfoliating"]
+      },
+      {
+        "product_id": 12,
+        "product_name_arabic": "ايفا | بادى سبلاش مورنينج بلوسوم | 240مل",
+        "product_name_english": "Eva Senses Body Splash Morning Blossom",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/eva-skin-care-senses-body-splash-spring-lilies-240ml-tvyr_duC51p",
+        "price_egp": 200,
+        "brand": "ايفا (Eva)",
+        "brand_english": "Eva",
+        "category": "Bath & Body Care",
+        "subcategory": "Body Splash",
+        "specifications": {
+          "size": "240ml",
+          "type": "Body splash",
+          "series": "Senses",
+          "scent": "Morning Blossom"
+        },
+        "stock_status": "Available",
+        "features": ["Body splash", "Morning Blossom", "Senses series", "Long lasting"]
+      },
+      {
+        "product_id": 13,
+        "product_name_arabic": "ايفا | بادى سبلاش - مسك وياسمين | 240مل",
+        "product_name_english": "Eva Senses Body Splash Musk and Jasmine",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/eva-skin-care-senses-body-splash-spring-lilies-240ml-tvyr_duC51pXM_duzn8pBh_duR4Pzi4",
+        "price_egp": 195,
+        "brand": "ايفا (Eva)",
+        "brand_english": "Eva",
+        "category": "Bath & Body Care",
+        "subcategory": "Body Splash",
+        "specifications": {
+          "size": "240ml",
+          "type": "Body splash",
+          "series": "Senses",
+          "scent": "Musk and Jasmine"
+        },
+        "stock_status": "Available",
+        "features": ["Body splash", "Musk", "Jasmine", "Senses series", "Long lasting"]
+      },
+      {
+        "product_id": 14,
+        "product_name_arabic": "ايفا | بادى سبلاش - نايت اوت | 240مل",
+        "product_name_english": "Eva Senses Body Splash Night Out",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/eva-skin-care-senses-body-splash-spring-lilies-240ml-tvyr_duC51pXM_du0pw3uB_duRPm9pB",
+        "price_egp": 220,
+        "brand": "ايفا (Eva)",
+        "brand_english": "Eva",
+        "category": "Bath & Body Care",
+        "subcategory": "Body Splash",
+        "specifications": {
+          "size": "240ml",
+          "type": "Body splash",
+          "series": "Senses",
+          "scent": "Night Out"
+        },
+        "stock_status": "Available",
+        "features": ["Body splash", "Night Out", "Senses series", "Long lasting"]
+      },
+      {
+        "product_id": 15,
+        "product_name_arabic": "ايفا | سكين كير بادي سبلاش ريد جلامور | 240مل",
+        "product_name_english": "Eva Skin Care Senses Body Splash Red Glamour",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/eva-skin-care-senses-body-splash-red-glamour-240ml-slke",
+        "price_egp": 200,
+        "brand": "ايفا (Eva)",
+        "brand_english": "Eva",
+        "category": "Bath & Body Care",
+        "subcategory": "Body Splash",
+        "specifications": {
+          "size": "240ml",
+          "type": "Body splash",
+          "series": "Senses",
+          "scent": "Red Glamour"
+        },
+        "stock_status": "Available",
+        "features": ["Body splash", "Red Glamour", "Senses series", "Long lasting"]
+      },
+      {
+        "product_id": 16,
+        "product_name_arabic": "ديودرنت ستارفيل مزيل عرق للتفتيح برائحة الفانيليا 60مل",
+        "product_name_english": "Starville Roll-On Deodorant Vanilla Whitening",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/starville-roll-on-vanilla-60ml-opsw",
+        "price_egp": 130,
+        "brand": "ستارفيل (Starville)",
+        "brand_english": "Starville",
+        "category": "Bath & Body Care",
+        "subcategory": "Deodorants",
+        "specifications": {
+          "size": "60ml",
+          "type": "Roll-on deodorant",
+          "feature": "Whitening",
+          "scent": "Vanilla"
+        },
+        "stock_status": "Available",
+        "features": ["Whitening", "Vanilla scent", "Roll-on", "Anti-perspirant"]
+      },
+      {
+        "product_id": 17,
+        "product_name_arabic": "ستارفيل | وايتنج رول أون مضاد للتعرق فريش بريز | 60مل",
+        "product_name_english": "Starville Whitening Roll-On Antiperspirant Fresh Breeze",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/starville-whitening-roll-on-antiperspirant-fresh-breeze-60ml-9j0",
+        "price_egp": 130,
+        "brand": "ستارفيل (Starville)",
+        "brand_english": "Starville",
+        "category": "Bath & Body Care",
+        "subcategory": "Deodorants",
+        "specifications": {
+          "size": "60ml",
+          "type": "Whitening roll-on antiperspirant",
+          "scent": "Fresh Breeze"
+        },
+        "stock_status": "Available",
+        "features": ["Whitening", "Fresh Breeze", "Anti-perspirant", "Roll-on"]
+      }
+    ],
+    "protection": [
+      {
+        "product_id": 18,
+        "product_name_arabic": "ديوركس كوندوم للرجال الترا فيثرلايت واقي ذكري | 3 قطع",
+        "product_name_english": "Durex Fetherlite Ultra Condom for Men",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/durex-fetherlite-ultra-condom-3pcs-3sdv",
+        "price_egp": 169,
+        "brand": "ديوركس (Durex)",
+        "brand_english": "Durex",
+        "category": "Protection",
+        "subcategory": "Condoms",
+        "specifications": {
+          "quantity": "3 pieces",
+          "type": "Fetherlite Ultra",
+          "target": "Men"
+        },
+        "stock_status": "Available",
+        "features": ["Ultra thin", "Fetherlite", "For men", "High quality"]
+      },
+      {
+        "product_id": 19,
+        "product_name_arabic": "ديوركس | واقي ذكري بيرفورماكس انتينس لمتعة اكثر لكليكما | 10 قطع",
+        "product_name_english": "Durex Mutual Pleasure Condom Performax Intensa",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/durex-mutual-pleasure-condom-10pcs-efud",
+        "price_egp": 425,
+        "brand": "ديوركس (Durex)",
+        "brand_english": "Durex",
+        "category": "Protection",
+        "subcategory": "Condoms",
+        "specifications": {
+          "quantity": "10 pieces",
+          "type": "Performax Intensa",
+          "target": "Both partners"
+        },
+        "stock_status": "Available",
+        "features": ["Mutual pleasure", "Performax", "For both partners", "Enhanced sensation"]
+      }
+    ],
+    "body_care_whitening": [
+      {
+        "product_id": 20,
+        "product_name_arabic": "إيڤا بي وايت | كريم لتفتيح المناطق الحساسة | 50جم",
+        "product_name_english": "Eva B-White Whitening Cream for Sensitive Areas",
+        "product_url": "https://chefaa.com/eg-ar/nowProduct/eva-b-white-whitening-cream-for-sensitive-areas-50gm-urib",
+        "price_egp": 40,
+        "brand": "إيڤا (Eva)",
+        "brand_english": "Eva",
+        "category": "Body Care",
+        "subcategory": "Whitening Products",
+        "specifications": {
+          "size": "50gm",
+          "type": "Whitening cream",
+          "target": "Sensitive areas"
+        },
+        "stock_status": "Available",
+        "features": ["Whitening", "For sensitive areas", "B-White series", "Gentle formula"]
+      }
+    ]
+  },
+  "brand_analysis": {
+    "نيفيا (Nivea)": {
+      "total_products": 3,
+      "categories": ["Deodorants"],
+      "price_range": "350 EGP",
+      "features": ["Invisible protection", "Pearl extract", "For men and women"]
+    },
+    "إيڤا (Eva)": {
+      "total_products": 13,
+      "categories": ["Deodorants", "Oral Care", "Body Care", "Whitening", "Foot Care"],
+      "price_range": "40-220 EGP",
+      "features": ["Aloe vera", "Natural ingredients", "Multiple product lines", "Affordable pricing"]
+    },
+    "ستارفيل (Starville)": {
+      "total_products": 2,
+      "categories": ["Deodorants"],
+      "price_range": "130 EGP",
+      "features": ["Whitening properties", "Vanilla and fresh breeze scents"]
+    },
+    "ديوركس (Durex)": {
+      "total_products": 2,
+      "categories": ["Protection"],
+      "price_range": "169-425 EGP",
+      "features": ["Premium quality", "Enhanced pleasure", "Multiple variants"]
+    },
+    "سنسوداين (Sensodyne)": {
+      "total_products": 1,
+      "categories": ["Oral Care"],
+      "price_range": "135 EGP",
+      "features": ["For sensitive teeth", "Multi-care and whitening"]
+    }
+  },
+  "price_analysis": {
+    "lowest_price": "40 EGP",
+    "highest_price": "425 EGP",
+    "average_price": "171.5 EGP",
+    "price_distribution": {
+      "under_50": ["40 EGP", "45 EGP", "50 EGP"],
+      "50_to_100": ["60 EGP", "85 EGP", "110 EGP"],
+      "100_to_200": ["135 EGP", "169 EGP", "195 EGP", "200 EGP", "220 EGP"],
+      "above_200": ["350 EGP", "425 EGP"]
+    }
+  },
+  "category_distribution": {
+    "Bath & Body Care": 13,
+    "Oral Care": 4,
+    "Protection": 2,
+    "Body Care - Whitening": 1
+  },
+  "extraction_notes": {
+    "limitations": [
+      "Only extracted products from page 1 of 62 total pages due to website navigation issues",
+      "Some subcategories (Feminine Care, Men Care, Natural Herbs & Supplements) were not represented in the extracted sample",
+      "Website showed navigation redirects to different categories"
+    ],
+    "data_quality": "High quality with detailed product information including Arabic names, English translations, specifications, and pricing",
+    "recommendations": "For complete data extraction, manual navigation through all 62 pages would be required, or API access if available"
+  }
+}

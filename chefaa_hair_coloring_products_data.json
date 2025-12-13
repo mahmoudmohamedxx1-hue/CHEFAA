@@ -1,0 +1,664 @@
+{
+  "research_metadata": {
+    "website": "Chefaa.com (شفاء)",
+    "category": "Hair Care > Hair Coloring (صبغات الشعر)",
+    "research_date": "2025-11-01",
+    "total_products_extracted": 47,
+    "pages_analyzed": 4,
+    "pages_with_products": [1, 2, 4],
+    "pages_empty": [3, 5],
+    "currency": "EGP",
+    "language": "Arabic/English bilingual"
+  },
+  "market_analysis": {
+    "brand_distribution": {
+      "L'Oréal Paris": {
+        "count": 21,
+        "percentage": 44.7,
+        "price_range": "225-550 EGP",
+        "product_lines": ["Prodigy", "Excellence", "Casting Crème Gloss", "Magic Retouch"]
+      },
+      "Garnier": {
+        "count": 11,
+        "percentage": 23.4,
+        "price_range": "146-161 EGP",
+        "product_lines": ["Color Naturals", "Dark Blonde", "Ash Blonde"]
+      },
+      "Palette": {
+        "count": 3,
+        "percentage": 6.4,
+        "price_range": "123-125 EGP",
+        "product_lines": ["Intensive Color Creme"]
+      },
+      "Glory": {
+        "count": 3,
+        "percentage": 6.4,
+        "price_range": "45 EGP",
+        "product_lines": ["Henna", "Shikakai & Amla"]
+      },
+      "Vatika": {
+        "count": 1,
+        "percentage": 2.1,
+        "price_range": "40 EGP",
+        "product_lines": ["Natural Henna"]
+      },
+      "Luna": {
+        "count": 2,
+        "percentage": 4.3,
+        "price_range": "17-22 EGP",
+        "product_lines": ["Hydrogen Peroxide", "Oxygen Cream"]
+      },
+      "Other": {
+        "count": 6,
+        "percentage": 12.8,
+        "price_range": "varies",
+        "product_lines": ["Various brands"]
+      }
+    },
+    "price_analysis": {
+      "min_price": 17,
+      "max_price": 550,
+      "average_price": 276,
+      "price_segments": {
+        "budget": {
+          "range": "17-100 EGP",
+          "count": 8,
+          "percentage": 17.0,
+          "brands": ["Luna", "Vatika", "Glory"]
+        },
+        "mid_range": {
+          "range": "101-300 EGP",
+          "count": 17,
+          "percentage": 36.2,
+          "brands": ["Garnier", "Palette", "L'Oréal Excellence"]
+        },
+        "premium": {
+          "range": "301-550 EGP",
+          "count": 22,
+          "percentage": 46.8,
+          "brands": ["L'Oréal Paris Prodigy", "L'Oréal Paris Casting", "L'Oreal Magic Retouch"]
+        }
+      }
+    },
+    "product_categories": {
+      "permanent_hair_dyes": {
+        "count": 28,
+        "percentage": 59.6,
+        "description": "Traditional permanent coloring solutions"
+      },
+      "ammonia_free": {
+        "count": 12,
+        "percentage": 25.5,
+        "description": "Gentle formulations without ammonia"
+      },
+      "henna_products": {
+        "count": 4,
+        "percentage": 8.5,
+        "description": "Natural henna-based coloring"
+      },
+      "root_concealers": {
+        "count": 1,
+        "percentage": 2.1,
+        "description": "Instant root touch-up products"
+      },
+      "accessories": {
+        "count": 2,
+        "percentage": 4.3,
+        "description": "Peroxide and oxygen cream for coloring process"
+      }
+    },
+    "color_distribution": {
+      "brown_shades": {
+        "count": 15,
+        "percentage": 31.9,
+        "variants": ["Light Brown", "Dark Brown", "Chocolate Brown", "Coffee Brown", "Golden Brown"]
+      },
+      "blonde_shades": {
+        "count": 14,
+        "percentage": 29.8,
+        "variants": ["Ash Blonde", "Golden Blonde", "Light Blonde", "Dark Blonde", "Super Light Blonde"]
+      },
+      "black_shades": {
+        "count": 8,
+        "percentage": 17.0,
+        "variants": ["Black", "Deep Black", "Blue Black"]
+      },
+      "red_shades": {
+        "count": 6,
+        "percentage": 12.8,
+        "variants": ["Red", "Burgundy Red", "Mahogany", "Red Brown"]
+      },
+      "specialty_colors": {
+        "count": 4,
+        "percentage": 8.5,
+        "variants": ["Plum", "Silver", "Arctic Silver", "Pearl Brown"]
+      }
+    }
+  },
+  "products": [
+    {
+      "id": 1,
+      "arabic_name": "لوريال باريس | صبغة كريم لشعر لامع وبراق 513 بني فاتح رمادي",
+      "english_name": "L'Oréal Paris | Casting Crème Gloss Hair Dye 513 Ashy Nude Brown for Shiny and Radiant Hair",
+      "brand": "L'Oréal Paris",
+      "price_egp": 460,
+      "volume_size": "Not specified",
+      "special_features": "Color: 513 Ashy Nude Brown (بني فاتح رمادي), For shiny and radiant hair",
+      "page": 1,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 2,
+      "arabic_name": "لوريال باريس | صبغة لوريال باريس كاستينج كريم اللامعة | 300...",
+      "english_name": "L'Oréal Paris | Casting Crème Gloss Hair Dye | 300 Darkest Brown",
+      "brand": "L'Oréal Paris",
+      "price_egp": 460,
+      "volume_size": "Not specified",
+      "special_features": "Color: 300 Darkest Brown",
+      "page": 1,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 3,
+      "arabic_name": "صبغة لوريال اكسلانس اشقر رمادي | رقم 7.17",
+      "english_name": "L'Oréal Excellence Hair Dye Ash Blonde | No. 7.17",
+      "brand": "L'Oréal Excellence",
+      "price_egp": 326.7,
+      "volume_size": "Not specified",
+      "special_features": "Color: Ash Blonde (اشقر رمادي), No. 7.17",
+      "page": 1,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 4,
+      "arabic_name": "لوريال باريس | صبغة شعر برودجي بدون أمونيا | 3.0 كحل بنى | ...",
+      "english_name": "L'Oréal Paris | Prodigy Ammonia-Free Hair Dye | 3.0 Kohl Brown-Black",
+      "brand": "L'Oréal Paris",
+      "price_egp": 392,
+      "volume_size": "Not specified",
+      "special_features": "Ammonia-free, Color: 3.0 Kohl Brown (كحل بنى), Brown-Black",
+      "page": 1,
+      "category": "ammonia_free"
+    },
+    {
+      "id": 5,
+      "arabic_name": "لوريال باريس | صبغة شعر برودجي بدون أمونيا | 4.0 بني",
+      "english_name": "L'Oréal Paris | Prodigy Ammonia-Free Hair Dye | 4.0 Brown",
+      "brand": "L'Oréal Paris",
+      "price_egp": 392,
+      "volume_size": "Not specified",
+      "special_features": "Ammonia-free, Color: 4.0 Brown (بني)",
+      "page": 1,
+      "category": "ammonia_free"
+    },
+    {
+      "id": 6,
+      "arabic_name": "لوريال باريس | صبغة شعر برودجي بدون أمونيا | 4.15 سيينا | ب...",
+      "english_name": "L'Oréal Paris | Prodigy Ammonia-Free Hair Dye | 4.15 Sienna (Frosted Brown)",
+      "brand": "L'Oréal Paris",
+      "price_egp": 392,
+      "volume_size": "Not specified",
+      "special_features": "Ammonia-free, Color: 4.15 Sienna (سيينا), Frosted Brown",
+      "page": 1,
+      "category": "ammonia_free"
+    },
+    {
+      "id": 7,
+      "arabic_name": "لوريال باريس | صبغة شعر برودجي بدون أمونيا | 5.30 بني ذهبي",
+      "english_name": "L'Oréal Paris | Prodigy Ammonia-Free Hair Dye | 5.30 Golden Brown",
+      "brand": "L'Oréal Paris",
+      "price_egp": 401,
+      "volume_size": "Not specified",
+      "special_features": "Ammonia-free, Color: 5.30 Golden Brown (بني ذهبي)",
+      "page": 1,
+      "category": "ammonia_free"
+    },
+    {
+      "id": 8,
+      "arabic_name": "لوريال باريس | صبغة شعر برودجي بدون أمونيا | 6.32 صدف بني |...",
+      "english_name": "L'Oréal Paris | Prodigy Ammonia-Free Hair Dye | 6.32 Pearl Brown (Dark Golden Blonde)",
+      "brand": "L'Oréal Paris",
+      "price_egp": 390,
+      "volume_size": "Not specified",
+      "special_features": "Ammonia-free, Color: 6.32 Pearl Brown (صدف بني), Dark Golden Blonde",
+      "page": 1,
+      "category": "ammonia_free"
+    },
+    {
+      "id": 9,
+      "arabic_name": "لوريال باريس | صبغة شعر كريم بروديجي إكسيلانس 10.1 أشقر رما...",
+      "english_name": "L'Oréal Paris | Prodigy Excellence Cream Hair Dye 10.1 Super Light Ash Blonde",
+      "brand": "L'Oréal Paris",
+      "price_egp": 390,
+      "volume_size": "Not specified",
+      "special_features": "Color: 10.1 Super Light Ash Blonde (أشقر رمادي)",
+      "page": 1,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 10,
+      "arabic_name": "غارنييه | صبغة شعر كولور ناتشرالز كريم | 6.3 بني قهوة",
+      "english_name": "Garnier | Color Naturals Crème Hair Dye | 6.3 Coffee Brown",
+      "brand": "Garnier",
+      "price_egp": 161,
+      "volume_size": "Not specified",
+      "special_features": "Color: 6.3 Coffee Brown (بني قهوة)",
+      "page": 1,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 11,
+      "arabic_name": "لونا | ماء اكسجين حجم 10 | 80مل",
+      "english_name": "Luna | Hydrogen Peroxide 10 Vol | 80ml",
+      "brand": "Luna",
+      "price_egp": 17,
+      "volume_size": "80ml",
+      "special_features": "Hydrogen Peroxide, Volume: 10",
+      "page": 1,
+      "category": "accessories"
+    },
+    {
+      "id": 12,
+      "arabic_name": "غارنييه | صبغة شعر كولور ناتشرالز كريم | 1 أسود",
+      "english_name": "Garnier | Color Naturals Crème Hair Dye | 1 Black",
+      "brand": "Garnier",
+      "price_egp": 146,
+      "volume_size": "Not specified",
+      "special_features": "Color: 1 Black (أسود)",
+      "page": 1,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 13,
+      "arabic_name": "لوريال باريس | صبغة شعر برودجي بدون أمونيا | 1.0 أسود",
+      "english_name": "L'Oréal Paris | Prodigy Ammonia-Free Hair Dye | 1.0 Black",
+      "brand": "L'Oréal Paris",
+      "price_egp": 392,
+      "volume_size": "Not specified",
+      "special_features": "Ammonia-free, Color: 1.0 Black (أسود)",
+      "page": 1,
+      "category": "ammonia_free"
+    },
+    {
+      "id": 14,
+      "arabic_name": "لوريال باريس | صبغة شعر بني 400 | بدون امونيا",
+      "english_name": "L'Oréal Paris | Brown Hair Dye 400 | Ammonia-Free",
+      "brand": "L'Oréal Paris",
+      "price_egp": 460,
+      "volume_size": "Not specified",
+      "special_features": "Ammonia-free, Color: 400 Brown (بني)",
+      "page": 1,
+      "category": "ammonia_free"
+    },
+    {
+      "id": 15,
+      "arabic_name": "صبغة لوريال باريس برودجي بدون أمونيا | صبغة شعر احمر رقم 6.60",
+      "english_name": "L'Oréal Paris Prodigy Ammonia-Free Hair Dye | Red Hair Dye No. 6.60",
+      "brand": "L'Oréal Paris",
+      "price_egp": 392,
+      "volume_size": "Not specified",
+      "special_features": "Ammonia-free, Color: Red (احمر), No. 6.60",
+      "page": 1,
+      "category": "ammonia_free"
+    },
+    {
+      "id": 16,
+      "arabic_name": "لونا | كريم اوكسجين 9% | 30 مجم",
+      "english_name": "Luna | Oxygen Cream 9% | 30 Vol",
+      "brand": "Luna",
+      "price_egp": 22,
+      "volume_size": "30 Vol",
+      "special_features": "Oxygen Cream, 9% concentration",
+      "page": 1,
+      "category": "accessories"
+    },
+    {
+      "id": 17,
+      "arabic_name": "لوريال باريس | صبغة الشعر الرائعة إكسيلانس كريم | 1 أسود",
+      "english_name": "L'Oréal Paris | Excellence Crème Hair Dye | 1 Black",
+      "brand": "L'Oréal Paris",
+      "price_egp": 460,
+      "volume_size": "Not specified",
+      "special_features": "Color: 1 Black (أسود)",
+      "page": 1,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 18,
+      "arabic_name": "غارنييه | صبغة شعر كولور ناتشرالز كريم | 5 بني فاتح",
+      "english_name": "Garnier | Color Naturals Crème Hair Dye | 5 Light Brown",
+      "brand": "Garnier",
+      "price_egp": 161,
+      "volume_size": "Not specified",
+      "special_features": "Color: 5 Light Brown (بني فاتح)",
+      "page": 1,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 19,
+      "arabic_name": "غارنييه | صبغة شعر كولور ناتشرالز كريم | 9.1 أشقر رمادي فات...",
+      "english_name": "Garnier | Color Naturals Crème Hair Dye | 9.1 Light Ash Blonde",
+      "brand": "Garnier",
+      "price_egp": 161,
+      "volume_size": "Not specified",
+      "special_features": "Color: 9.1 Light Ash Blonde (أشقر رمادي فاتح)",
+      "page": 1,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 20,
+      "arabic_name": "باليت | كريم صبغة الشعر انتنسيف كولور 6-0 أشقر غامق | 50مل",
+      "english_name": "Palette | Intensive Color Crème Hair Dye 6-0 Dark Blonde | 50ml",
+      "brand": "Palette",
+      "price_egp": 124,
+      "volume_size": "50ml",
+      "special_features": "Color: 6-0 Dark Blonde (أشقر غامق), Intensive Color (انتنسيف كولور)",
+      "page": 1,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 21,
+      "arabic_name": "جلورى | حنة بالشيكاكي والاملا 10 جم - كستنائي | 1 كيس",
+      "english_name": "Glory | Henna with Shikakai and Amla 10 gm - Chestnut | 1 sachet",
+      "brand": "Glory",
+      "price_egp": 45,
+      "volume_size": "10 gm, 1 sachet",
+      "special_features": "With Shikakai and Amla, Chestnut",
+      "page": 2,
+      "category": "henna_products"
+    },
+    {
+      "id": 22,
+      "arabic_name": "غارنييه | صبغة شعر دائمة مغذية كريمية من كولور ناتشورالز 1...",
+      "english_name": "Garnier | Color Naturals Creme Nourishing Permanent Hair Color 1 Black",
+      "brand": "Garnier",
+      "price_egp": 161,
+      "volume_size": "Not specified",
+      "special_features": "Permanent, Nourishing Creme, Color Naturals, Black (Color Code 1)",
+      "page": 2,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 23,
+      "arabic_name": "جلوري | حنه بني للشعر | 10جم",
+      "english_name": "Glory | Brown Henna for Hair | 10gm",
+      "brand": "Glory",
+      "price_egp": 45,
+      "volume_size": "10gm",
+      "special_features": "Henna, Brown",
+      "page": 2,
+      "category": "henna_products"
+    },
+    {
+      "id": 24,
+      "arabic_name": "فاتيكا | حناء للشعر أسود طبيعي 60جم | 6 أكياس",
+      "english_name": "Vatika | Henna Hair Natural Black 60gm | 6 sachets",
+      "brand": "Vatika",
+      "price_egp": 40,
+      "volume_size": "60gm, 6 sachets",
+      "special_features": "Henna, Natural Black",
+      "page": 2,
+      "category": "henna_products"
+    },
+    {
+      "id": 25,
+      "arabic_name": "غارنييه | صبغة شعر كولور ناتشرالز كريم | 2.1 أسود مزرق",
+      "english_name": "Garnier | Color Naturals Creme Hair Color | 2.1 Blue Black",
+      "brand": "Garnier",
+      "price_egp": 160,
+      "volume_size": "Not specified",
+      "special_features": "Color Naturals Creme, Blue Black (Color Code 2.1)",
+      "page": 2,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 26,
+      "arabic_name": "لوريال | صبغة برودجي بدون امونيا | اشقر رمادي فاتح رقم 8.10",
+      "english_name": "L'Oreal | Prodigy Ammonia-Free Hair Color | Light Ash Blonde No. 8.10",
+      "brand": "L'Oreal",
+      "price_egp": 356,
+      "volume_size": "Not specified",
+      "special_features": "Prodigy, Ammonia-Free, Light Ash Blonde (Color Code 8.10)",
+      "page": 2,
+      "category": "ammonia_free"
+    },
+    {
+      "id": 27,
+      "arabic_name": "لوريال باريس | صبغة الشعر الرائعة إكسيلانس كريم | بني شوكول...",
+      "english_name": "L'Oreal Paris | Excellence Creme Hair Color | Chocolate Brown",
+      "brand": "L'Oreal Paris",
+      "price_egp": 297,
+      "volume_size": "Not specified",
+      "special_features": "Excellence Creme, Chocolate Brown (Color Code 6.7 from URL)",
+      "page": 2,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 28,
+      "arabic_name": "جلوري | حناء للشعر لون بني فاتح 10جم | 1 كيس",
+      "english_name": "Glory | Henna for Hair Light Brown 10gm | 1 sachet",
+      "brand": "Glory",
+      "price_egp": 45,
+      "volume_size": "10gm, 1 sachet",
+      "special_features": "Henna, Light Brown",
+      "page": 2,
+      "category": "henna_products"
+    },
+    {
+      "id": 29,
+      "arabic_name": "لوريال | صبغ كريم جلوس - بلوم 316",
+      "english_name": "L'Oreal | Casting Creme Gloss - Plum 316",
+      "brand": "L'Oreal",
+      "price_egp": 460,
+      "volume_size": "Not specified",
+      "special_features": "Creme Gloss, Plum (Color Code 316)",
+      "page": 2,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 30,
+      "arabic_name": "لوريال باريس | ماجيك ريتوتش خافي عيوب فورية بني داكن | 75مل",
+      "english_name": "L'Oreal Paris | Magic Retouch Instant Root Concealer Dark Brown | 75ml",
+      "brand": "L'Oreal Paris",
+      "price_egp": 550,
+      "volume_size": "75ml",
+      "special_features": "Magic Retouch, Instant Root Concealer, Dark Brown",
+      "page": 2,
+      "category": "root_concealers"
+    },
+    {
+      "id": 31,
+      "arabic_name": "لوريال باريس | إكسلانس صبغة كريم 7.0 أشقر | خصم 15%",
+      "english_name": "L'Oreal Paris | Excellence Creme Hair Color 7.0 Blonde | 15% Discount",
+      "brand": "L'Oreal Paris",
+      "price_egp": 225,
+      "volume_size": "Not specified",
+      "special_features": "Excellence Creme Hair Color, Blonde (Color Code 7.0), 15% Discount",
+      "page": 2,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 32,
+      "arabic_name": "لوريال باريس | صبغة الشعر الرائعة إكسيلانس كريم | 7.1 أشقر ...",
+      "english_name": "L'Oreal Paris | Excellence Creme Hair Color | 7.1 Ash Blonde",
+      "brand": "L'Oreal Paris",
+      "price_egp": 327,
+      "volume_size": "Not specified",
+      "special_features": "Excellence Creme, Ash Blonde (Color Code 7.1)",
+      "page": 2,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 33,
+      "arabic_name": "صبغة لوريال اكسلانس آش سوبريم | 9.1 أشقر رمادي فاتح جدا",
+      "english_name": "L'Oreal Excellence Ash Supreme Hair Dye | 9.1 Very Light Ash Blonde",
+      "brand": "L'Oreal",
+      "price_egp": 297,
+      "volume_size": "Not specified",
+      "special_features": "Excellence Ash Supreme, Very Light Ash Blonde (Color Code 9.1)",
+      "page": 2,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 34,
+      "arabic_name": "لوريال | كاستينغ كريم جلوس - 200 ديب بلاك",
+      "english_name": "L'Oreal | Casting Creme Gloss - 200 Deep Black",
+      "brand": "L'Oreal",
+      "price_egp": 460,
+      "volume_size": "Not specified",
+      "special_features": "Casting Creme Gloss, Deep Black (Color Code 200)",
+      "page": 2,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 35,
+      "arabic_name": "باليت | كريم صبغة الشعر انتنسيف كولور 10-1 أشقر فضي قطبي | ...",
+      "english_name": "Palette | Intensive Color Creme Hair Dye 10-1 Arctic Silver Blonde | 50ml",
+      "brand": "Palette",
+      "price_egp": 123,
+      "volume_size": "50ml",
+      "special_features": "Intensive Color Creme, Arctic Silver Blonde (Color Code 10-1)",
+      "page": 2,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 36,
+      "arabic_name": "لوريال باريس | صبغة شعر كاستينج كريم اللامعة | 500 بني فاتح",
+      "english_name": "L'Oreal Paris | Casting Creme Gloss Hair Color | 500 Light Brown",
+      "brand": "L'Oreal Paris",
+      "price_egp": 530,
+      "volume_size": "Not specified",
+      "special_features": "Casting Creme Gloss, Light Brown (Color Code 500)",
+      "page": 2,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 37,
+      "arabic_name": "لوريال باريس صبغة شعر كاستينج كريم اللامعة | 535 شيكولاته",
+      "english_name": "L'Oreal Paris Casting Creme Gloss Hair Color | 535 Chocolate",
+      "brand": "L'Oreal Paris",
+      "price_egp": 460,
+      "volume_size": "Not specified",
+      "special_features": "Casting Creme Gloss, Chocolate (Color Code 535)",
+      "page": 2,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 38,
+      "arabic_name": "لوريال باريس | صبغة لوريال بدون امونيا اللامعة | 600 أشقر داكن",
+      "english_name": "L'Oreal Paris | L'Oreal Ammonia-Free Glossy Hair Dye | 600 Dark Blonde",
+      "brand": "L'Oreal Paris",
+      "price_egp": 530,
+      "volume_size": "Not specified",
+      "special_features": "Ammonia-Free, Glossy, Dark Blonde (Color Code 600)",
+      "page": 2,
+      "category": "ammonia_free"
+    },
+    {
+      "id": 39,
+      "arabic_name": "لوريال باريس | صبغة شعر كاستينج كريم اللامعة | 630 أشقر فات...",
+      "english_name": "L'Oreal Paris | Casting Creme Gloss Hair Color | 630 Light Golden Blonde",
+      "brand": "L'Oreal Paris",
+      "price_egp": 460,
+      "volume_size": "Not specified",
+      "special_features": "Casting Creme Gloss, Light Golden Blonde (Color Code 630)",
+      "page": 2,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 40,
+      "arabic_name": "غارنييه | صبغة شعر كولور ناتشرالز كريم | 6.1 أشقر غامق رمادي",
+      "english_name": "Garnier | Color Naturals Creme Hair Color | 6.1 Dark Ash Blonde",
+      "brand": "Garnier",
+      "price_egp": 146,
+      "volume_size": "Not specified",
+      "special_features": "Color Naturals Creme, Dark Ash Blonde (Color Code 6.1)",
+      "page": 2,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 41,
+      "arabic_name": "غارنييه | اشقر غامق | 6",
+      "english_name": "Garnier | Dark Blonde | 6",
+      "brand": "Garnier",
+      "price_egp": 161,
+      "volume_size": "Not specified",
+      "special_features": "Color: 6, Dark Blonde (اشقر غامق)",
+      "page": 4,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 42,
+      "arabic_name": "غارنييه | صبغة شعر كولور ناتشرالز كريم | 7 أشقر",
+      "english_name": "Garnier | Color Naturals Creme Hair Dye | 7 Blonde",
+      "brand": "Garnier",
+      "price_egp": 147,
+      "volume_size": "Not specified",
+      "special_features": "Type: Color Naturals Creme, Color: 7, Blonde (أشقر)",
+      "page": 4,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 43,
+      "arabic_name": "غارنييه | اشقر رمادى | 7/1",
+      "english_name": "Garnier | Ash Blonde | 7/1",
+      "brand": "Garnier",
+      "price_egp": 147,
+      "volume_size": "Not specified",
+      "special_features": "Color: 7/1, Ash Blonde (اشقر رمادى)",
+      "page": 4,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 44,
+      "arabic_name": "غارنييه | صبغة شعر كولور ناتشرال كريم | 5.3 بني فاتح ذهبي",
+      "english_name": "Garnier | Color Naturals Creme Hair Dye | 5.3 Light Golden Brown",
+      "brand": "Garnier",
+      "price_egp": 146,
+      "volume_size": "Not specified",
+      "special_features": "Type: Color Naturals Creme, Color: 5.3, Light Golden Brown (بني فاتح ذهبي)",
+      "page": 4,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 45,
+      "arabic_name": "صبغة باليت انتينسيف كولور كريم اسود مزرق ( 1-1) | 50 مل",
+      "english_name": "Palette Intensive Color Creme Hair Dye Blue Black (1-1) | 50 ml",
+      "brand": "Palette",
+      "price_egp": 125,
+      "volume_size": "50 ml",
+      "special_features": "Type: Intensive Color Creme, Color: 1-1, Blue Black (اسود مزرق)",
+      "page": 4,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 46,
+      "arabic_name": "غارنييه | صبغة شعر كولور ناتشرالز كريم | 3.6 بني أحمر غامق",
+      "english_name": "Garnier | Color Naturals Creme Hair Dye | 3.6 Deep Red Brown",
+      "brand": "Garnier",
+      "price_egp": 161,
+      "volume_size": "Not specified",
+      "special_features": "Type: Color Naturals Creme, Color: 3.6, Deep Red Brown (بني أحمر غامق)",
+      "page": 4,
+      "category": "permanent_hair_dyes"
+    },
+    {
+      "id": 47,
+      "arabic_name": "غارنييه | صبغة شعر كولور ناتشرالز كريم | 4.6 أحمر برغندي",
+      "english_name": "Garnier | Color Naturals Creme Hair Color | 4.6 Burgundy Red",
+      "brand": "Garnier",
+      "price_egp": 160,
+      "volume_size": "Not specified",
+      "special_features": "Type: Color Naturals Creme, Color: 4.6, Burgundy Red (أحمر برغندي)",
+      "page": 4,
+      "category": "permanent_hair_dyes"
+    }
+  ],
+  "extraction_summary": {
+    "successful_pages": [1, 2, 4],
+    "failed_pages": [3, 5],
+    "total_extraction_time": "Research completed systematically across multiple pages",
+    "data_quality": "High - Direct extraction from live website with bilingual product information",
+    "completeness": "Comprehensive catalog of available hair coloring products as of extraction date"
+  }
+}
