@@ -1,0 +1,624 @@
+{
+  "extraction_summary": {
+    "website": "Chefaa.com",
+    "category": "Pain Relief Medications (مسكنات الألم)",
+    "total_pages": 3,
+    "total_products": 60,
+    "extraction_date": "2025-11-01",
+    "currency": "EGP"
+  },
+  "all_products": [
+    {
+      "page": 1,
+      "products": [
+        {
+          "product_name": "بانادول اكسترا لتخفيف إضافي مسكن فعال للألم والحمي",
+          "english_name": "Panadol Extra for Additional Pain and Fever Relief",
+          "price_egp": 54,
+          "brand": "Panadol",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "Extra Strength",
+          "specifications": "24 قرص"
+        },
+        {
+          "product_name": "دوليبران 1000 مجم باراسيتامول مسكن للصداع والآلام",
+          "english_name": "Doliprane 1000mg Paracetamol for Headache and Pain Relief",
+          "price_egp": 60,
+          "brand": "Doliprane",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "1000 mg paracetamol",
+          "specifications": "20 قرص"
+        },
+        {
+          "product_name": "اقراص دوليبران 1000 باراسيتامول doliprane",
+          "english_name": "Doliprane 1000 Paracetamol Tablets",
+          "price_egp": 48,
+          "brand": "Doliprane",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "1000 paracetamol",
+          "specifications": "15 قرص"
+        },
+        {
+          "product_name": "بانادول مايجرين اقراص مسكن للصداع النصفي",
+          "english_name": "Panadol Migraine Tablets for Migraine Relief",
+          "price_egp": 51,
+          "brand": "Panadol",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "for Migraine",
+          "specifications": "30 قرص"
+        },
+        {
+          "product_name": "اميجراويست 2.5 amigrawest tab برشام للصداع النصفي",
+          "english_name": "Amigrawest 2.5mg Migraine Tablets",
+          "price_egp": 56,
+          "brand": "Amigrawest",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "2.5mg",
+          "specifications": "4 اقراص"
+        },
+        {
+          "product_name": "بانادول ادفانس 500 مجم باراسيتامول مسكن للألم بفاعلية",
+          "english_name": "Panadol Advance 500mg Paracetamol Pain Reliever",
+          "price_egp": 92,
+          "brand": "Panadol",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "500 mg paracetamol",
+          "specifications": "48 قرص"
+        },
+        {
+          "product_name": "اقراص كتافلام 50 مسكن للاسنان والصداع cataflam",
+          "english_name": "Cataflam 50mg for Teeth and Headache Pain Relief",
+          "price_egp": 86,
+          "brand": "Cataflam",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "50mg",
+          "specifications": "20 قرص"
+        },
+        {
+          "product_name": "أبيمول مسكن وخافض للحرارة 500مج",
+          "english_name": "Abimol 500mg Pain Reliever and Fever Reducer",
+          "price_egp": 24,
+          "brand": "Abimol",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "500mg",
+          "specifications": "20 قرص"
+        },
+        {
+          "product_name": "أبيمول أكسترا | مسكن وخافض للحرارة 500/30مج",
+          "english_name": "Abimol Extra 500/30mg Pain Reliever and Fever Reducer",
+          "price_egp": 28,
+          "brand": "Abimol",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "500/30mg",
+          "specifications": "20 قرص"
+        },
+        {
+          "product_name": "اكتى كولا سي لعلاج التهاب وخشونة المفاصل",
+          "english_name": "Acti-Colla C for Joint Inflammation and Roughness Treatment",
+          "price_egp": 258,
+          "brand": "Acti-Colla C",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "for Joint Inflammation and Roughness",
+          "specifications": "10 أكياس"
+        },
+        {
+          "product_name": "أكياس اكتى كولا سي لعلاج التهاب وخشونة المفاصل",
+          "english_name": "Acti-Colla C Sachets for Joint Inflammation and Roughness",
+          "price_egp": 666,
+          "brand": "Acti-Colla C",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "for Joint Inflammation and Roughness",
+          "specifications": "30 كيس"
+        },
+        {
+          "product_name": "انسيلاكوكس 120مجم",
+          "english_name": "Anselacox 120mg",
+          "price_egp": 120,
+          "brand": "Anselacox",
+          "availability_status": "In Stock",
+          "prescription_required": "Yes",
+          "dosage_information": "120mg",
+          "specifications": "10 أقراص"
+        },
+        {
+          "product_name": "بروفين | 200 مجم",
+          "english_name": "Brufen 200mg",
+          "price_egp": 54,
+          "brand": "Brufen",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "200 mg",
+          "specifications": "30 قرص"
+        },
+        {
+          "product_name": "بروفين 400 ملجم مسكن ومضاد للالتهاب قوي",
+          "english_name": "Brufen 400mg Strong Pain Reliever and Anti-inflammatory",
+          "price_egp": 78,
+          "brand": "Brufen",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "400 mg",
+          "specifications": "30 قرص"
+        },
+        {
+          "product_name": "بروفين 600 ملجم مسكن قوي",
+          "english_name": "Brufen 600mg Strong Pain Reliever",
+          "price_egp": 80,
+          "brand": "Brufen",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "600 mg",
+          "specifications": "20 كيس"
+        },
+        {
+          "product_name": "بروفين مسكن للالم 600 مجم",
+          "english_name": "Brufen 600mg Pain Reliever",
+          "price_egp": 99,
+          "brand": "Brufen",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "600 mg",
+          "specifications": "30 قرص"
+        },
+        {
+          "product_name": "بروفين | شراب 100 مجم",
+          "english_name": "Brufen Syrup 100mg",
+          "price_egp": 44,
+          "brand": "Brufen",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "100 mg",
+          "specifications": "150 مل شراب"
+        },
+        {
+          "product_name": "بروفين كولد",
+          "english_name": "Brufen Cold",
+          "price_egp": 146,
+          "brand": "Brufen",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "N/A",
+          "specifications": "20 أقراص"
+        },
+        {
+          "product_name": "بروفين كولد دواء للزكام والرشح والاحتقان 400/60مج",
+          "english_name": "Brufen Cold for Cold, Runny Nose and Congestion 400/60mg",
+          "price_egp": 37,
+          "brand": "Brufen",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "400/60mg for Cold, Runny Nose and Congestion",
+          "specifications": "10 اقراص"
+        },
+        {
+          "product_name": "بروفين فلو اقراص للبرد والرشح واحتقان الانف",
+          "english_name": "Brufen Flu Tablets for Cold, Runny Nose and Nasal Congestion",
+          "price_egp": 13,
+          "brand": "Brufen",
+          "availability_status": "In Stock",
+          "prescription_required": "No",
+          "dosage_information": "for Cold, Runny Nose and Nasal Congestion",
+          "specifications": "10 أقراص"
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "products": [
+        {
+          "product_name": "بروفين فلو شراب",
+          "english_name": "Brufen Flu Syrup",
+          "price_egp": 11,
+          "brand": "Brufen",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "60مل",
+          "specifications": "Syrup"
+        },
+        {
+          "product_name": "فوار كتافاست للاسنان ومسكن للصداع catafast",
+          "english_name": "Catafast Effervescent for Teeth and Headache Pain Reliever",
+          "price_egp": 72,
+          "brand": "Catafast",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "9 أكياس",
+          "specifications": "Effervescent sachets, 50mg"
+        },
+        {
+          "product_name": "كتافلام أمبول 75جم 3مل",
+          "english_name": "Cataflam Ampoule",
+          "price_egp": 83,
+          "brand": "Cataflam",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "75جم 3مل",
+          "specifications": "Ampoule, 6 ampoules"
+        },
+        {
+          "product_name": "سيتال مسكن للآلام 500مج",
+          "english_name": "Cetal Pain Reliever 500mg",
+          "price_egp": 24,
+          "brand": "Cetal",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "500mg",
+          "specifications": "Tablets, 20 قرص"
+        },
+        {
+          "product_name": "ديكلوبرو 150 مسكن ممتد المفعول diclopro 150",
+          "english_name": "Diclopro 150 Sustained Release Pain Reliever",
+          "price_egp": 106,
+          "brand": "Diclopro",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "150mg",
+          "specifications": "Sustained release tablets, 20 قرص"
+        },
+        {
+          "product_name": "ديكلوبرو جل diclopro مسكن لآلام المفاصل والعضلات",
+          "english_name": "Diclopro Gel for Joint and Muscle Pain Relief",
+          "price_egp": 52,
+          "brand": "Diclopro",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "50 جم",
+          "specifications": "Gel"
+        },
+        {
+          "product_name": "فلاش أكت خافض للحرارة",
+          "english_name": "Flash Act Antipyretic",
+          "price_egp": 30,
+          "brand": "Flash Act",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "50مل",
+          "specifications": "Antipyretic, 9 sachets"
+        },
+        {
+          "product_name": "فروست جيل الازرق مساج ومسكن للألم",
+          "english_name": "Frost Blue Gel Massage and Pain Reliever",
+          "price_egp": 110,
+          "brand": "Frost",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "100جم",
+          "specifications": "Gel"
+        },
+        {
+          "product_name": "كيفن تك لصقة الظهر لتسكين الالم",
+          "english_name": "Kefentech Back Patch for Pain Relief",
+          "price_egp": 85,
+          "brand": "Kefentech",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "30 جم",
+          "specifications": "Plaster/Patch, 7 ورقة"
+        },
+        {
+          "product_name": "موڤليكس كريم",
+          "english_name": "Movelex Cream 120gm",
+          "price_egp": 120,
+          "brand": "Movelex",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "120جم",
+          "specifications": "Cream"
+        },
+        {
+          "product_name": "موڤليكس كريم",
+          "english_name": "Movelex Cream 50gm",
+          "price_egp": 95,
+          "brand": "Movelex",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "50جم",
+          "specifications": "Cream"
+        },
+        {
+          "product_name": "موڤليكس بلس چل",
+          "english_name": "Movelex Plus Gel",
+          "price_egp": 150,
+          "brand": "Movelex Plus",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "100جم",
+          "specifications": "Gel"
+        },
+        {
+          "product_name": "ميوكول كريم مساج مسكن لآلام المفاصل والعضلات",
+          "english_name": "Myocool Massage Cream for Joint and Muscle Pain Relief",
+          "price_egp": 125,
+          "brand": "Myocool",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "100جم",
+          "specifications": "Massage Cream"
+        },
+        {
+          "product_name": "نيو مووف أون كريم",
+          "english_name": "Neo Move On Cream 100gm",
+          "price_egp": 250,
+          "brand": "Neo Move On",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "100جم",
+          "specifications": "Cream"
+        },
+        {
+          "product_name": "نيو مووف أون كريم",
+          "english_name": "Neo Move On Cream 50gm",
+          "price_egp": 180,
+          "brand": "Neo Move On",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "50جم",
+          "specifications": "Cream"
+        },
+        {
+          "product_name": "نيو مووف أون جيل",
+          "english_name": "Neo Move On Gel",
+          "price_egp": 280,
+          "brand": "Neo Move On",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "100مل",
+          "specifications": "Gel"
+        },
+        {
+          "product_name": "حقن نوفالجين مسكن للالم الشديد وخافض للحرارة",
+          "english_name": "Novalgin Injections for Severe Pain and Antipyretic",
+          "price_egp": 33,
+          "brand": "Novalgin",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "3 امبولات",
+          "specifications": "Injections, 2ml each"
+        },
+        {
+          "product_name": "ابلونج نوفالجين اقراص oblong novalgin للصداع والبرد",
+          "english_name": "Oblong Novalgin Tablets for Headache and Cold",
+          "price_egp": 20,
+          "brand": "Novalgin",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "500 mg",
+          "specifications": "Tablets, 10 tablets"
+        },
+        {
+          "product_name": "باراسيتامول مسكن و خافض حرارة",
+          "english_name": "Paracetamol Pain Reliever and Antipyretic",
+          "price_egp": 34,
+          "brand": "Paracetamol",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "500mg",
+          "specifications": "Tablets, 20 قرص"
+        },
+        {
+          "product_name": "بارامول مسكن و خافض للحراره",
+          "english_name": "Paramol Pain Reliever and Antipyretic",
+          "price_egp": 38,
+          "brand": "Paramol",
+          "availability_status": "In Stock",
+          "prescription_required": "Not specified",
+          "dosage_information": "500mg",
+          "specifications": "Tablets, 20 قرص"
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "products": [
+        {
+          "product_name": "ريبايون ان جل للكدمات والتورم",
+          "english_name": "Repaion N Gel for bruises and swelling 50gm",
+          "price_egp": 65,
+          "brand": "Repaion",
+          "availability_status": "In Stock",
+          "prescription_required": false,
+          "dosage_information": "N/A",
+          "specifications": "Gel, 50 gm, for bruises and swelling"
+        },
+        {
+          "product_name": "ريبايون-إن سبراي",
+          "english_name": "Repaion-N Spray 120ml",
+          "price_egp": 130,
+          "brand": "Repaion",
+          "availability_status": "In Stock",
+          "prescription_required": false,
+          "dosage_information": "N/A",
+          "specifications": "Spray, 120 ml"
+        },
+        {
+          "product_name": "سينلرج لعلاج اعراض البرد والجيوب الانفية",
+          "english_name": "Sinlerg for treating cold symptoms and sinusitis 20 tablets",
+          "price_egp": 56,
+          "brand": "Sinlerg",
+          "availability_status": "In Stock",
+          "prescription_required": false,
+          "dosage_information": "N/A",
+          "specifications": "Tablets, 20 pills per pack, for cold symptoms and sinusitis"
+        },
+        {
+          "product_name": "سلفاكس سي ام او فورميولا كريم",
+          "english_name": "Sulfax CMO Formula Cream 60gm",
+          "price_egp": 80,
+          "brand": "Sulfax",
+          "availability_status": "In Stock",
+          "prescription_required": false,
+          "dosage_information": "N/A",
+          "specifications": "Cream, 60 gm"
+        },
+        {
+          "product_name": "سالفكس بلس جل تدليك مساج",
+          "english_name": "Sulfax Plus Massage Gel 60gm",
+          "price_egp": 100,
+          "brand": "Sulfax",
+          "availability_status": "In Stock",
+          "prescription_required": false,
+          "dosage_information": "N/A",
+          "specifications": "Massage Gel, 60 gm"
+        },
+        {
+          "product_name": "فولتارين ايملجل موضعي لتخفيف الآلام والالتهابات",
+          "english_name": "Voltaren Emulgel topical for pain and inflammation relief 25gm",
+          "price_egp": 39,
+          "brand": "Voltaren",
+          "availability_status": "In Stock",
+          "prescription_required": false,
+          "dosage_information": "N/A",
+          "specifications": "Topical Emulgel, 25 gm, for pain and inflammation relief"
+        },
+        {
+          "product_name": "فولتارين ايملجل موضعي لتخفيف الآلام والالتهابات",
+          "english_name": "Voltaren Emulgel topical for pain and inflammation relief 50gm",
+          "price_egp": 68,
+          "brand": "Voltaren",
+          "availability_status": "In Stock",
+          "prescription_required": true,
+          "dosage_information": "N/A",
+          "specifications": "Topical Emulgel, 50 gm, for pain and inflammation relief"
+        },
+        {
+          "product_name": "فولتارين اقراص 50 مجم مسكن للعظام والعضلات",
+          "english_name": "Voltaren tablets pain reliever for bones and muscles 50mg",
+          "price_egp": 48,
+          "brand": "Voltaren",
+          "availability_status": "In Stock",
+          "prescription_required": false,
+          "dosage_information": "50 mg strength",
+          "specifications": "Tablets, 20 pills per pack, for bone and muscle pain relief"
+        },
+        {
+          "product_name": "فولتارين ايملجل موضعي لتخفيف الآلام والالتهابات",
+          "english_name": "Voltaren Emulgel topical for pain and inflammation relief 100gm",
+          "price_egp": 101,
+          "brand": "Voltaren",
+          "availability_status": "In Stock",
+          "prescription_required": false,
+          "dosage_information": "N/A",
+          "specifications": "Topical Emulgel, 100 gm, for pain and inflammation relief"
+        },
+        {
+          "product_name": "بنادول جوينت للمفاصل مسكن للألم",
+          "english_name": "Panadol Joint for joint pain relief 24 tablets",
+          "price_egp": 67,
+          "brand": "Panadol",
+          "availability_status": "In Stock",
+          "prescription_required": false,
+          "dosage_information": "N/A",
+          "specifications": "Extended-release tablets, 24 pills per pack, for joint pain relief"
+        },
+        {
+          "product_name": "ديب فريز | فارماكون سبراي",
+          "english_name": "Deep Freeze Pharmakon Spray 125gm",
+          "price_egp": 138,
+          "brand": "Pharmakon / Deep Freeze",
+          "availability_status": "In Stock",
+          "prescription_required": false,
+          "dosage_information": "N/A",
+          "specifications": "Cold Spray, 125 gm"
+        },
+        {
+          "product_name": "فلوتاك",
+          "english_name": "Flotac 75mg 20 capsules",
+          "price_egp": 90,
+          "brand": "Flotac",
+          "availability_status": "In Stock",
+          "prescription_required": false,
+          "dosage_information": "75 mg strength",
+          "specifications": "Capsules, 20 capsules per pack"
+        },
+        {
+          "product_name": "أسبوسيد أقراص للوقاية من الجلطات 75 مجم",
+          "english_name": "Aspocid tablets for clot prevention 75mg",
+          "price_egp": 33,
+          "brand": "Aspocid",
+          "availability_status": "In Stock",
+          "prescription_required": false,
+          "dosage_information": "75 mg strength",
+          "specifications": "Tablets, 20 pills per pack, for clot prevention"
+        },
+        {
+          "product_name": "بينموف | مساج جل",
+          "english_name": "Benmuv Massage Gel 120gm",
+          "price_egp": 170,
+          "brand": "Benmuv",
+          "availability_status": "In Stock",
+          "prescription_required": false,
+          "dosage_information": "N/A",
+          "specifications": "Massage Gel, 120 gm"
+        },
+        {
+          "product_name": "أدول إكسترا",
+          "english_name": "Adol Extra 24 capsules",
+          "price_egp": 52,
+          "brand": "Adol",
+          "availability_status": "In Stock",
+          "prescription_required": false,
+          "dosage_information": "N/A",
+          "specifications": "Capsules, 24 capsules per pack"
+        },
+        {
+          "product_name": "سلفاكس كولد سبراي | مسكن و مضاد للروماتيزم",
+          "english_name": "Sulfax Cold Spray pain reliever and anti-rheumatic 200ml",
+          "price_egp": 300,
+          "brand": "Sulfax",
+          "availability_status": "In Stock",
+          "prescription_required": false,
+          "dosage_information": "N/A",
+          "specifications": "Cold Spray, 200 ml, pain reliever and anti-rheumatic"
+        },
+        {
+          "product_name": "بريكسين مسكن عام للآلام 20مج",
+          "english_name": "Brexin general pain reliever 20mg",
+          "price_egp": 34,
+          "brand": "Brexin",
+          "availability_status": "Limited Quantity",
+          "prescription_required": false,
+          "dosage_information": "20 mg strength",
+          "specifications": "Tablets, 10 pills per pack, general pain reliever"
+        },
+        {
+          "product_name": "نيو مووف أون سبراي",
+          "english_name": "Neo Move On Spray 200ml",
+          "price_egp": 280,
+          "brand": "Neo Move On",
+          "availability_status": "In Stock",
+          "prescription_required": false,
+          "dosage_information": "N/A",
+          "specifications": "Spray, 200 ml"
+        }
+      ]
+    }
+  ],
+  "brand_summary": {
+    "Panadol": 4,
+    "Doliprane": 3,
+    "Brufen": 8,
+    "Cataflam/Catafast": 3,
+    "Voltaren": 4,
+    "Abimol": 2,
+    "Acti-Colla C": 2,
+    "Other brands": 34
+  },
+  "price_statistics": {
+    "minimum_price": 11,
+    "maximum_price": 666,
+    "average_price": 89.5
+  },
+  "prescription_required_count": 2,
+  "limited_availability_count": 1
+}
