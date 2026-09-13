@@ -1,0 +1,274 @@
+// The Pharmacy - bilingual dictionary
+export type Lang = 'ar' | 'en'
+
+export const T = {
+  brand: { en: 'The Pharmacy', ar: 'ذا فارميسي' },
+  tagline: { en: 'Egypt\u2019s Smartest Online Pharmacy', ar: 'أذكى صيدلية أونلاين في مصر' },
+
+  // nav / header
+  search_placeholder: { en: 'Search medicines, vitamins, skincare…', ar: 'ابحث عن أدوية، فيتامينات، مستحضرات…' },
+  login: { en: 'Login', ar: 'تسجيل الدخول' },
+  register: { en: 'Register', ar: 'حساب جديد' },
+  logout: { en: 'Logout', ar: 'تسجيل الخروج' },
+  account: { en: 'My Account', ar: 'حسابي' },
+  my_orders: { en: 'My Orders', ar: 'طلباتي' },
+  admin_panel: { en: 'Admin Panel', ar: 'لوحة الإدارة' },
+  cart: { en: 'Cart', ar: 'العربة' },
+  all_categories: { en: 'All Categories', ar: 'كل الأقسام' },
+
+  // hero
+  hero_badge: { en: 'AI-Powered Pharmacy', ar: 'صيدلية مدعومة بالذكاء الاصطناعي' },
+  hero_title_1: { en: 'Your health,', ar: 'صحتك،' },
+  hero_title_2: { en: 'delivered smartly', ar: 'توصلك بذكاء' },
+  hero_sub: {
+    en: '488+ genuine medicines and wellness products, AI prescription reading, drug-interaction safety checks and same-day delivery across Egypt.',
+    ar: 'أكثر من 488 دواء ومنتج عافية أصلي، قراءة الروشتة بالذكاء الاصطناعي، فحص تعارض الأدوية، وتوصيل في نفس اليوم لكل مصر.',
+  },
+  hero_cta_shop: { en: 'Start Shopping', ar: 'ابدأ التسوق' },
+  hero_cta_rx: { en: 'Upload Prescription', ar: 'ارفع الروشتة' },
+
+  // promo strip
+  promo_1: { en: 'Free delivery over 500 EGP', ar: 'توصيل مجاني للطلبات فوق 500 جنيه' },
+  promo_2: { en: '100% genuine products', ar: 'منتجات أصلية 100%' },
+  promo_3: { en: 'Pharmacist support 24/7', ar: 'دعم صيدلي على مدار الساعة' },
+  promo_4: { en: 'AI reads your prescription', ar: 'الذكاء الاصطناعي يقرأ روشتتك' },
+
+  // sections
+  shop_by_category: { en: 'Shop by Category', ar: 'تسوق حسب القسم' },
+  featured_products: { en: 'Featured Products', ar: 'منتجات مميزة' },
+  view_all: { en: 'View all', ar: 'عرض الكل' },
+  ai_power_tools: { en: 'AI Health Tools', ar: 'أدوات الذكاء الصحي' },
+  ai_tools_sub: { en: 'Features no other pharmacy in Egypt offers', ar: 'مميزات لا تقدمها أي صيدلية أخرى في مصر' },
+  why_us: { en: 'Why The Pharmacy?', ar: 'لماذا ذا فارميسي؟' },
+
+  // AI features
+  ai_rx_title: { en: 'AI Prescription Reader', ar: 'قارئ الروشتة الذكي' },
+  ai_rx_desc: { en: 'Snap your prescription — AI reads it instantly and finds the medicines for you.', ar: 'صوّر روشتتك — الذكاء الاصطناعي يقرأها فوراً ويجيب لك الأدوية.' },
+  ai_chat_title: { en: 'AI Health Assistant', ar: 'المساعد الصحي الذكي' },
+  ai_chat_desc: { en: 'Describe your symptoms and get suitable product suggestions in seconds.', ar: 'صف أعراضك واحصل على اقتراحات مناسبة في ثوانٍ.' },
+  ai_ddi_title: { en: 'Drug Interaction Checker', ar: 'فاحص تعارض الأدوية' },
+  ai_ddi_desc: { en: 'Check if your medicines interact dangerously before you take them.', ar: 'افحص تعارض أدويتك قبل تناولها لحمايتك.' },
+  try_now: { en: 'Try now', ar: 'جرّب الآن' },
+
+  // product
+  add_to_cart: { en: 'Add to Cart', ar: 'أضف للعربة' },
+  out_of_stock: { en: 'Out of stock', ar: 'غير متوفر' },
+  in_stock: { en: 'In stock', ar: 'متوفر' },
+  low_stock: { en: 'Low stock', ar: 'كمية محدودة' },
+  rx_required: { en: 'Prescription required', ar: 'يتطلب روشتة طبية' },
+  description: { en: 'Description', ar: 'الوصف' },
+  related_products: { en: 'Related Products', ar: 'منتجات ذات صلة' },
+  qty: { en: 'Qty', ar: 'الكمية' },
+  egp: { en: 'EGP', ar: 'جنيه' },
+  off: { en: 'OFF', ar: 'خصم' },
+  reviews: { en: 'reviews', ar: 'تقييم' },
+
+  // category page
+  filters: { en: 'Filters', ar: 'الفلاتر' },
+  price_range: { en: 'Price range', ar: 'نطاق السعر' },
+  brand_f: { en: 'Brand', ar: 'الماركة' },
+  availability: { en: 'Availability', ar: 'التوفر' },
+  in_stock_only: { en: 'In stock only', ar: 'المتوفر فقط' },
+  prescription_f: { en: 'Prescription', ar: 'الروشتة' },
+  rx_only: { en: 'Prescription only', ar: 'بروشتة فقط' },
+  otc_only: { en: 'OTC only', ar: 'بدون روشتة فقط' },
+  all: { en: 'All', ar: 'الكل' },
+  sort_by: { en: 'Sort by', ar: 'ترتيب حسب' },
+  sort_popular: { en: 'Most popular', ar: 'الأكثر شعبية' },
+  sort_price_asc: { en: 'Price: low to high', ar: 'السعر: من الأقل' },
+  sort_price_desc: { en: 'Price: high to low', ar: 'السعر: من الأعلى' },
+  sort_rating: { en: 'Top rated', ar: 'الأعلى تقييماً' },
+  sort_newest: { en: 'Newest', ar: 'الأحدث' },
+  results: { en: 'results', ar: 'نتيجة' },
+  no_products: { en: 'No products match your filters', ar: 'لا توجد منتجات مطابقة للفلاتر' },
+  clear_filters: { en: 'Clear filters', ar: 'مسح الفلاتر' },
+  prev: { en: 'Previous', ar: 'السابق' },
+  next: { en: 'Next', ar: 'التالي' },
+  page: { en: 'Page', ar: 'صفحة' },
+
+  // cart
+  cart_empty: { en: 'Your cart is empty', ar: 'عربتك فارغة' },
+  cart_empty_sub: { en: 'Add medicines or products to get started', ar: 'أضف أدوية أو منتجات للبدء' },
+  continue_shopping: { en: 'Continue shopping', ar: 'متابعة التسوق' },
+  subtotal: { en: 'Subtotal', ar: 'المجموع الفرعي' },
+  delivery_fee: { en: 'Delivery fee', ar: 'رسوم التوصيل' },
+  free: { en: 'FREE', ar: 'مجاناً' },
+  total: { en: 'Total', ar: 'الإجمالي' },
+  checkout: { en: 'Checkout', ar: 'إتمام الطلب' },
+  remove: { en: 'Remove', ar: 'إزالة' },
+  items: { en: 'items', ar: 'منتج' },
+  free_delivery_hint: { en: 'away from free delivery', ar: 'تفصلك عن التوصيل المجاني' },
+  added_to_cart: { en: 'Added to cart', ar: 'تمت الإضافة للعربة' },
+
+  // checkout
+  delivery_details: { en: 'Delivery Details', ar: 'بيانات التوصيل' },
+  full_name: { en: 'Full name', ar: 'الاسم بالكامل' },
+  phone: { en: 'Phone number', ar: 'رقم الهاتف' },
+  phone_hint: { en: 'Egyptian mobile e.g. 01012345678', ar: 'موبايل مصري مثل 01012345678' },
+  zone_select: { en: 'Delivery zone', ar: 'منطقة التوصيل' },
+  address: { en: 'Address details', ar: 'تفاصيل العنوان' },
+  address_hint: { en: 'Street, building, floor, apartment…', ar: 'الشارع، العقار، الدور، الشقة…' },
+  notes: { en: 'Order notes (optional)', ar: 'ملاحظات الطلب (اختياري)' },
+  payment_method: { en: 'Payment Method', ar: 'طريقة الدفع' },
+  cod: { en: 'Cash on Delivery', ar: 'الدفع عند الاستلام' },
+  cod_desc: { en: 'Pay in cash when your order arrives', ar: 'ادفع كاش عند وصول طلبك' },
+  place_order: { en: 'Place Order', ar: 'تأكيد الطلب' },
+  order_summary: { en: 'Order Summary', ar: 'ملخص الطلب' },
+  same_day: { en: 'Same-day delivery', ar: 'توصيل في نفس اليوم' },
+  next_day: { en: 'Next-day delivery', ar: 'توصيل في الغد' },
+  days_2_3: { en: 'Delivery in 2–3 days', ar: 'توصيل خلال 2–3 أيام' },
+  days_3_5: { en: 'Delivery in 3–5 days', ar: 'توصيل خلال 3–5 أيام' },
+  login_to_checkout: { en: 'Login to track your order (optional)', ar: 'سجّل الدخول لتتبع طلبك (اختياري)' },
+
+  // order success
+  order_success: { en: 'Order Placed Successfully!', ar: 'تم تأكيد طلبك بنجاح!' },
+  order_number: { en: 'Order number', ar: 'رقم الطلب' },
+  order_success_sub: { en: 'Our pharmacist will confirm your order shortly. We\u2019ll call you before delivery.', ar: 'سيتواصل معك الصيدلي لتأكيد الطلب قريباً. سنتصل بك قبل التوصيل.' },
+  track_orders: { en: 'Track my orders', ar: 'تتبع طلباتي' },
+
+  // orders
+  orders_empty: { en: 'No orders yet', ar: 'لا توجد طلبات بعد' },
+  order_items: { en: 'items', ar: 'عناصر' },
+  order_date: { en: 'Date', ar: 'التاريخ' },
+  status: { en: 'Status', ar: 'الحالة' },
+
+  // statuses
+  st_pending: { en: 'Pending', ar: 'قيد الانتظار' },
+  st_confirmed: { en: 'Confirmed', ar: 'مؤكد' },
+  st_preparing: { en: 'Preparing', ar: 'قيد التحضير' },
+  st_out_for_delivery: { en: 'Out for delivery', ar: 'في الطريق إليك' },
+  st_delivered: { en: 'Delivered', ar: 'تم التوصيل' },
+  st_cancelled: { en: 'Cancelled', ar: 'ملغي' },
+
+  // prescription view
+  rx_title: { en: 'Upload Your Prescription', ar: 'ارفع الروشتة الطبية' },
+  rx_sub: { en: 'Take a photo or upload an image — our AI reads it instantly and matches medicines to our catalog.', ar: 'صوّر أو ارفع صورة الروشتة — الذكاء الاصطناعي يقرأها فوراً ويطابق الأدوية مع كتالوجنا.' },
+  rx_drop: { en: 'Click or drag prescription image here', ar: 'اضغط أو اسحب صورة الروشتة هنا' },
+  rx_formats: { en: 'JPG, PNG — up to 8MB', ar: 'JPG أو PNG — حتى 8 ميجابايت' },
+  rx_reading: { en: 'AI is reading your prescription…', ar: 'الذكاء الاصطناعي يقرأ روشتتك…' },
+  rx_detected: { en: 'Detected Medicines', ar: 'الأدوية المكتشفة' },
+  rx_matched: { en: 'Matched in our catalog', ar: 'مطابقة في الكتالوج' },
+  rx_unmatched: { en: 'Not found — our pharmacist will source it', ar: 'غير موجودة — الصيدلي سيوفرها' },
+  rx_add_all: { en: 'Add all to cart', ar: 'أضف الكل للعربة' },
+  rx_confidence: { en: 'confidence', ar: 'دقة المطابقة' },
+  rx_doctor_notes: { en: 'Doctor notes', ar: 'ملاحظات الطبيب' },
+  rx_upload_btn: { en: 'Read with AI', ar: 'اقرأها بالذكاء الاصطناعي' },
+  rx_contact_info: { en: 'Contact info for delivery (optional)', ar: 'بيانات التواصل للتوصيل (اختياري)' },
+
+  // assistant
+  assistant_title: { en: 'AI Health Assistant', ar: 'المساعد الصحي الذكي' },
+  assistant_sub: { en: 'Ask about symptoms, vitamins or product suggestions — powered by AI, reviewed by pharmacists.', ar: 'اسأل عن الأعراض أو الفيتامينات أو اقتراحات المنتجات — بالذكاء الاصطناعي وإشراف الصيادلة.' },
+  assistant_placeholder: { en: 'e.g. I have a headache and mild fever…', ar: 'مثال: عندي صداع وحرارة بسيطة…' },
+  send: { en: 'Send', ar: 'إرسال' },
+  assistant_disclaimer: { en: 'AI guidance — not a medical diagnosis. Consult a pharmacist for prescription medicines.', ar: 'إرشاد ذكي — وليس تشخيصاً طبياً. استشر الصيدلي بشأن الأدوية الموصوفة.' },
+  suggested_products: { en: 'Suggested products', ar: 'منتجات مقترحة' },
+  chat_welcome: {
+    en: 'Hello! I\u2019m your pharmacy assistant. How can I help you today? You can describe symptoms or ask about products.',
+    ar: 'أهلاً! أنا مساعدك في الصيدلية. أقدر أساعدك بإيه النهاردة؟ صف أعراضك أو اسأل عن أي منتج.',
+  },
+
+  // interactions
+  ddi_title: { en: 'Drug Interaction Checker', ar: 'فاحص تعارض الأدوية' },
+  ddi_sub: { en: 'Add the medicines you take — AI analyzes combinations for dangerous interactions.', ar: 'أضف الأدوية التي تتناولها — الذكاء الاصطناعي يحلل التوليفات ويحذر من التعارضات الخطيرة.' },
+  ddi_add_med: { en: 'Add medicine', ar: 'أضف دواء' },
+  ddi_placeholder: { en: 'e.g. Panadol Extra', ar: 'مثال: بانادول إكسترا' },
+  ddi_analyze: { en: 'Analyze Interactions', ar: 'تحليل التعارضات' },
+  ddi_analyzing: { en: 'Analyzing…', ar: 'جارٍ التحليل…' },
+  ddi_need_two: { en: 'Add at least 2 medicines to check interactions', ar: 'أضف دواءين على الأقل لفحص التعارضات' },
+  ddi_risk_low: { en: 'Low risk', ar: 'خطر منخفض' },
+  ddi_risk_moderate: { en: 'Moderate risk', ar: 'خطر متوسط' },
+  ddi_risk_high: { en: 'High risk', ar: 'خطر مرتفع' },
+  ddi_severity_minor: { en: 'Minor', ar: 'بسيط' },
+  ddi_severity_moderate: { en: 'Moderate', ar: 'متوسط' },
+  ddi_severity_major: { en: 'Major', ar: 'خطير' },
+  ddi_severity_contraindicated: { en: 'Contraindicated', ar: 'ممنوع' },
+  ddi_advice: { en: 'General advice', ar: 'نصائح عامة' },
+  ddi_between: { en: 'Between', ar: 'بين' },
+
+  // auth
+  welcome_back: { en: 'Welcome back', ar: 'أهلاً بعودتك' },
+  create_account: { en: 'Create your account', ar: 'أنشئ حسابك' },
+  email: { en: 'Email', ar: 'البريد الإلكتروني' },
+  password: { en: 'Password', ar: 'كلمة المرور' },
+  name_optional: { en: 'Name', ar: 'الاسم' },
+  no_account: { en: 'Don\u2019t have an account?', ar: 'ليس لديك حساب؟' },
+  have_account: { en: 'Already have an account?', ar: 'لديك حساب بالفعل؟' },
+  invalid_credentials: { en: 'Invalid email or password', ar: 'بريد إلكتروني أو كلمة مرور غير صحيحة' },
+  email_taken: { en: 'This email is already registered', ar: 'هذا البريد مسجل بالفعل' },
+  weak_password: { en: 'Password must be at least 6 characters', ar: 'كلمة المرور يجب أن تكون 6 أحرف على الأقل' },
+  invalid_email: { en: 'Please enter a valid email', ar: 'أدخل بريداً إلكترونياً صحيحاً' },
+  demo_hint: { en: 'Demo: demo@thepharmacy.com / Demo@2026', ar: 'تجربة: demo@thepharmacy.com / Demo@2026' },
+
+  // account
+  account_info: { en: 'Account Information', ar: 'بيانات الحساب' },
+  member_since: { en: 'Member since', ar: 'عضو منذ' },
+
+  // admin
+  admin_title: { en: 'Admin Dashboard', ar: 'لوحة تحكم الإدارة' },
+  a_products: { en: 'Products', ar: 'المنتجات' },
+  a_low_stock: { en: 'Low stock', ar: 'مخزون منخفض' },
+  a_orders: { en: 'Orders', ar: 'الطلبات' },
+  a_customers: { en: 'Customers', ar: 'العملاء' },
+  a_prescriptions: { en: 'Prescriptions', ar: 'الروشتات' },
+  a_revenue: { en: 'Revenue', ar: 'الإيرادات' },
+  a_top_products: { en: 'Top selling products', ar: 'المنتجات الأكثر مبيعاً' },
+  a_manage_products: { en: 'Manage Products', ar: 'إدارة المنتجات' },
+  a_manage_orders: { en: 'Manage Orders', ar: 'إدارة الطلبات' },
+  a_rx_requests: { en: 'Prescription Requests', ar: 'طلبات الروشتات' },
+  a_update_stock: { en: 'Update', ar: 'تحديث' },
+  a_stock_col: { en: 'Stock', ar: 'المخزون' },
+  a_price_col: { en: 'Price', ar: 'السعر' },
+  a_save: { en: 'Save', ar: 'حفظ' },
+  a_customer: { en: 'Customer', ar: 'العميل' },
+  a_guest: { en: 'Guest', ar: 'زائر' },
+  a_search_products: { en: 'Search products…', ar: 'ابحث في المنتجات…' },
+  a_featured: { en: 'Featured', ar: 'مميز' },
+  admin_forbidden: { en: 'Admin access required', ar: 'مطلوب صلاحية إدارة' },
+
+  // footer
+  about_us: { en: 'About The Pharmacy', ar: 'عن ذا فارميسي' },
+  footer_about: {
+    en: 'Egypt\u2019s smartest online pharmacy: genuine medicines, AI-powered tools and fast delivery you can trust.',
+    ar: 'أذكى صيدلية أونلاين في مصر: أدوية أصلية، أدوات ذكية، وتوصيل سريع تستطيع الوثوق به.',
+  },
+  quick_links: { en: 'Quick Links', ar: 'روابط سريعة' },
+  ai_tools: { en: 'AI Tools', ar: 'الأدوات الذكية' },
+  contact_us: { en: 'Contact Us', ar: 'اتصل بنا' },
+  rights: { en: 'All rights reserved.', ar: 'جميع الحقوق محفوظة.' },
+  built_note: { en: 'Serving health across Egypt', ar: 'نخدم الصحة في كل مصر' },
+
+  // misc
+  egp_currency: { en: 'EGP', ar: 'جنيه' },
+  loading: { en: 'Loading…', ar: 'جارٍ التحميل…' },
+  error_generic: { en: 'Something went wrong. Please try again.', ar: 'حدث خطأ ما. حاول مرة أخرى.' },
+  ai_error: { en: 'AI service is busy. Please try again.', ar: 'خدمة الذكاء الاصطناعي مشغولة. حاول مرة أخرى.' },
+  new_badge: { en: 'NEW', ar: 'جديد' },
+  savings: { en: 'Save', ar: 'وفر' },
+  wishlist: { en: 'Wishlist', ar: 'المفضلة' },
+  added_wishlist: { en: 'Added to wishlist', ar: 'أضيف للمفضلة' },
+  removed_wishlist: { en: 'Removed from wishlist', ar: 'أُزيل من المفضلة' },
+  search_results_for: { en: 'Search results for', ar: 'نتائج البحث عن' },
+  no_results: { en: 'No results found', ar: 'لا توجد نتائج' },
+  popular_searches: { en: 'Popular right now', ar: 'الأكثر بحثاً الآن' },
+  product_of: { en: 'of', ar: 'من' },
+  back: { en: 'Back', ar: 'رجوع' },
+  how_it_works: { en: 'How it works', ar: 'كيف يعمل' },
+  step_1: { en: 'Add products or upload a prescription', ar: 'أضف منتجات أو ارفع الروشتة' },
+  step_2: { en: 'Checkout with cash on delivery', ar: 'أكمل الطلب بالدفع عند الاستلام' },
+  step_3: { en: 'Pharmacist verifies your order', ar: 'الصيدلي يراجع طلبك' },
+  step_4: { en: 'Fast delivery to your door', ar: 'توصيل سريع لباب بيتك' },
+  trust_genuine: { en: 'Genuine Products', ar: 'منتجات أصلية' },
+  trust_genuine_d: { en: 'Sourced only from licensed distributors', ar: 'من موزعين معتمدين فقط' },
+  trust_fast: { en: 'Fast Delivery', ar: 'توصيل سريع' },
+  trust_fast_d: { en: 'Same-day in Cairo, 2–4 days nationwide', ar: 'في نفس اليوم بالقاهرة، و2–4 أيام لكل مصر' },
+  trust_pharmacist: { en: 'Pharmacist Reviewed', ar: 'بإشراف صيادلة' },
+  trust_pharmacist_d: { en: 'Every Rx order checked by a licensed pharmacist', ar: 'كل طلب روشتة يراجعه صيدلي مرخص' },
+  trust_ai: { en: 'AI Safety Tools', ar: 'أدوات أمان ذكية' },
+  trust_ai_d: { en: 'Interaction checks and instant Rx reading', ar: 'فحص التعارضات وقراءة فورية للروشتة' },
+} as const
+
+export type TKey = keyof typeof T
+
+export function t(key: TKey, lang: Lang): string {
+  return T[key][lang]
+}

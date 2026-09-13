@@ -1,0 +1,112 @@
+// The Pharmacy - Prisma schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String        @id @default(cuid())
+  email         String        @unique
+  passwordHash  String
+  name          String?
+  phone         String?
+  isAdmin       Boolean       @default(false)
+  createdAt     DateTime      @default(now())
+  orders        Order[]
+  prescriptions Prescription[]
+  sessions      Session[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model Category {
+  id        String    @id @default(cuid())
+  slug      String    @unique
+  nameEn    String
+  nameAr    String
+  descEn    String
+  descAr    String
+  icon      String
+  sortOrder Int
+  products  Product[]
+}
+
+model Product {
+  id                   String      @id @default(cuid())
+  slug                 String      @unique
+  nameEn               String
+  nameAr               String
+  brand                String
+  descEn               String      @default("")
+  descAr               String      @default("")
+  price                Float
+  compareAtPrice       Float?
+  categoryId           String
+  category             Category    @relation(fields: [categoryId], references: [id])
+  subcategory          String      @default("")
+  volume               String      @default("")
+  prescriptionRequired Boolean     @default(false)
+  stock                Int         @default(0)
+  rating               Float       @default(4.5)
+  reviewCount          Int         @default(0)
+  popularity           Int         @default(0)
+  isFeatured           Boolean     @default(false)
+  createdAt            DateTime    @default(now())
+  orderItems           OrderItem[]
+}
+
+model Order {
+  id            String      @id @default(cuid())
+  orderNumber   String      @unique
+  userId        String?
+  user          User?       @relation(fields: [userId], references: [id])
+  status        String      @default("pending")
+  subtotal      Float
+  deliveryFee   Float       @default(0)
+  total         Float
+  paymentMethod String      @default("cod")
+  zone          String
+  address       String
+  phone         String
+  notes         String?
+  createdAt     DateTime    @default(now())
+  items         OrderItem[]
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String?
+  product   Product? @relation(fields: [productId], references: [id])
+  nameEn    String
+  nameAr    String
+  price     Float
+  quantity  Int
+}
+
+model Prescription {
+  id               String   @id @default(cuid())
+  userId           String?
+  user             User?    @relation(fields: [userId], references: [id])
+  imageData        String   @default("")
+  extractedText    String   @default("")
+  detectedMedicines String  @default("[]")
+  status           String   @default("submitted")
+  address          String   @default("")
+  phone            String   @default("")
+  notes            String   @default("")
+  createdAt        DateTime @default(now())
+}
