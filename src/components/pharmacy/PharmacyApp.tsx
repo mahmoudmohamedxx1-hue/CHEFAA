@@ -16,6 +16,7 @@ import { PrescriptionView } from './PrescriptionView'
 import { AssistantView } from './AssistantView'
 import { InteractionsView } from './InteractionsView'
 import { AdminView } from './AdminView'
+import { WishlistView } from './WishlistView'
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 1, refetchOnWindowFocus: false } },
@@ -39,6 +40,7 @@ function Shell() {
       case 'register': return <RegisterView />
       case 'orders': return <OrdersView />
       case 'account': return <AccountView />
+      case 'wishlist': return <WishlistView />
       case 'prescription': return <PrescriptionView />
       case 'assistant': return <AssistantView />
       case 'interactions': return <InteractionsView />

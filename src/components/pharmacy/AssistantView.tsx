@@ -9,6 +9,7 @@ import { Sparkles, Send, Loader2, Cross, ShoppingCart, ShieldAlert } from 'lucid
 import { useLang } from './LangContext'
 import { useCart } from '@/lib/store'
 import { fmtPrice } from './ProductCard'
+import { ProductImage } from './ProductImage'
 import { go } from '@/lib/router'
 import { useToast } from '@/hooks/use-toast'
 
@@ -96,6 +97,9 @@ export function AssistantView() {
                     <div className="grid sm:grid-cols-2 gap-2">
                       {m.products.map((p: any) => (
                         <div key={p.id} className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white border hover:border-primary/40 transition-colors">
+                          <button onClick={() => go(`/p/${p.slug}`)} className="shrink-0" aria-label="view product">
+                            <ProductImage slug={p.slug} category="pill" brand={p.brand || ''} imageUrl={p.imageUrl} alt={lang === 'ar' ? p.nameAr : p.nameEn} className="w-14 h-14 rounded-lg" rounded="rounded-lg" />
+                          </button>
                           <div className="flex-1 min-w-0">
                             <button onClick={() => go(`/p/${p.slug}`)} className="text-start">
                               <p className="text-xs font-bold line-clamp-1 hover:text-primary transition-colors">{lang === 'ar' ? p.nameAr : p.nameEn}</p>
@@ -107,7 +111,7 @@ export function AssistantView() {
                             className="w-8 h-8 rounded-lg shrink-0"
                             disabled={p.stock <= 0}
                             onClick={() => {
-                              add({ productId: p.id, slug: p.slug, nameEn: p.nameEn, nameAr: p.nameAr, price: p.price, stock: p.stock, prescriptionRequired: p.prescriptionRequired })
+                              add({ productId: p.id, slug: p.slug, nameEn: p.nameEn, nameAr: p.nameAr, price: p.price, stock: p.stock, prescriptionRequired: p.prescriptionRequired, imageUrl: p.imageUrl })
                               toast({ description: t('added_to_cart') })
                             }}
                             aria-label={t('add_to_cart')}

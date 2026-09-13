@@ -29,7 +29,7 @@ async function matchMedicines(names: string[]) {
   })
   const all = products.length >= 6 ? products : await db.product.findMany({ take: 500, orderBy: { popularity: 'desc' } })
 
-  const results: { medicine: string; productId: string; nameEn: string; nameAr: string; price: number; stock: number; confidence: number; prescriptionRequired: boolean; brand: string; slug: string }[] = []
+  const results: { medicine: string; productId: string; nameEn: string; nameAr: string; price: number; stock: number; confidence: number; prescriptionRequired: boolean; brand: string; slug: string; imageUrl: string }[] = []
   for (const med of meds) {
     const mt = norm(med)
     let best: (typeof all)[0] | null = null
@@ -42,7 +42,7 @@ async function matchMedicines(names: string[]) {
       results.push({
         medicine: med, productId: best.id, nameEn: best.nameEn, nameAr: best.nameAr,
         price: best.price, stock: best.stock, confidence: Math.round(Math.min(0.99, bestScore + 0.15) * 100) / 100,
-        prescriptionRequired: best.prescriptionRequired, brand: best.brand, slug: best.slug,
+        prescriptionRequired: best.prescriptionRequired, brand: best.brand, slug: best.slug, imageUrl: best.imageUrl,
       })
     }
   }

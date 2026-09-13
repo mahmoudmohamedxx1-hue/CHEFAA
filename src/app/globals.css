@@ -134,6 +134,10 @@ body { min-height: 100vh; }
 *::-webkit-scrollbar-thumb { background: oklch(0.75 0.06 185); border-radius: 8px; }
 *::-webkit-scrollbar-thumb:hover { background: oklch(0.6 0.118 184.704); }
 
+/* Slim horizontal brand strip scrollbar */
+.tp-scroll::-webkit-scrollbar { height: 4px; }
+.tp-scroll::-webkit-scrollbar-thumb { background: oklch(0.85 0.05 185); }
+
 /* Long list scroll areas */
 .scroll-area { max-height: 24rem; overflow-y: auto; }
 

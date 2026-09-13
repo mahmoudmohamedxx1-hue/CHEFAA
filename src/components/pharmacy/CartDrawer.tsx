@@ -8,6 +8,7 @@ import { useCart } from '@/lib/store'
 import { useLang } from './LangContext'
 import { go } from '@/lib/router'
 import { fmtPrice } from './ProductCard'
+import { ProductImage } from './ProductImage'
 import { FREE_DELIVERY_THRESHOLD } from '@/lib/zones'
 
 export function CartDrawer() {
@@ -44,6 +45,9 @@ export function CartDrawer() {
             <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-3">
               {items.map((i) => (
                 <div key={i.productId} className="flex gap-3 p-3 rounded-2xl border bg-card hover:border-primary/30 transition-colors">
+                  <button onClick={() => { close(); go(`/p/${i.slug}`) }} className="shrink-0" aria-label="view product">
+                    <ProductImage slug={i.slug} category="pill" brand="" imageUrl={i.imageUrl} alt={lang === 'ar' ? i.nameAr : i.nameEn} className="w-20 h-20 rounded-xl border-border/50" rounded="rounded-xl" />
+                  </button>
                   <div className="flex-1 min-w-0 flex flex-col gap-1">
                     <button onClick={() => { close(); go(`/p/${i.slug}`) }} className="text-start">
                       <p className="text-sm font-semibold line-clamp-2 hover:text-primary transition-colors">

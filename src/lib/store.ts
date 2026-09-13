@@ -12,6 +12,7 @@ export interface CartItem {
   qty: number
   stock: number
   prescriptionRequired: boolean
+  imageUrl?: string
 }
 
 interface CartState {

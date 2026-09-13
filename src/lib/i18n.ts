@@ -265,6 +265,17 @@ export const T = {
   trust_pharmacist_d: { en: 'Every Rx order checked by a licensed pharmacist', ar: 'كل طلب روشتة يراجعه صيدلي مرخص' },
   trust_ai: { en: 'AI Safety Tools', ar: 'أدوات أمان ذكية' },
   trust_ai_d: { en: 'Interaction checks and instant Rx reading', ar: 'فحص التعارضات وقراءة فورية للروشتة' },
+
+  // wishlist + delivery chips
+  wishlist_empty: { en: 'Your wishlist is empty', ar: 'قائمة المفضلة فارغة' },
+  wishlist_empty_sub: { en: 'Tap the heart on any product to save it here', ar: 'اضغط على القلب في أي منتج لحفظه هنا' },
+  delivery_express: { en: 'Same-day delivery in Cairo & Giza', ar: 'توصيل في نفس اليوم بالقاهرة والجيزة' },
+  delivery_nationwide: { en: '2–4 days delivery across Egypt', ar: 'توصيل 2–4 أيام لكل محافظات مصر' },
+  cod_available: { en: 'Cash on delivery available', ar: 'الدفع عند الاستلام متاح' },
+  shop_now: { en: 'Shop now', ar: 'اشترِ الآن' },
+  best_sellers: { en: 'Best sellers', ar: 'الأكثر مبيعاً' },
+  best_sellers_sub: { en: 'Most-loved products by our customers', ar: 'المنتجات المفضلة لعملائنا' },
+  featured_sub: { en: 'Hand-picked by our pharmacists', ar: 'مختارة بعناية من صيادلتنا' },
 } as const
 
 export type TKey = keyof typeof T

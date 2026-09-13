@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet'
 import { Cross, Search, ShoppingCart, User, Menu, LogOut, Package, LayoutDashboard, Languages, Heart, Sparkles } from 'lucide-react'
-import { useCart } from '@/lib/store'
+import { useCart, useWishlist } from '@/lib/store'
 import { useLang } from './LangContext'
 import { go } from '@/lib/router'
 import { useToast } from '@/hooks/use-toast'
@@ -23,6 +23,8 @@ export function Header({ categories }: { categories: Cat[] }) {
   const { lang, setLang, t, user, setUser } = useLang()
   const items = useCart((s) => s.items)
   const openCart = useCart((s) => s.open)
+  const wishlist = useWishlist()
+  const wishCount = wishlist.ids.length
   const [q, setQ] = useState('')
   const [suggestions, setSuggestions] = useState<Suggestion[]>([])
   const [showSugg, setShowSugg] = useState(false)
@@ -182,6 +184,16 @@ export function Header({ categories }: { categories: Cat[] }) {
                 )}
               </PopoverContent>
             </Popover>
+
+            {/* wishlist */}
+            <Button variant="ghost" size="icon" onClick={() => go('/wishlist')} className="relative rounded-xl h-10" aria-label={t('wishlist')}>
+              <Heart className="w-5 h-5" />
+              {wishCount > 0 && (
+                <Badge className="absolute -top-1 -end-1 h-5 min-w-5 px-1.5 text-[10px] font-bold bg-red-500 hover:bg-red-500 flex items-center justify-center">
+                  {wishCount}
+                </Badge>
+              )}
+            </Button>
 
             {/* cart */}
             <Button variant="ghost" size="icon" onClick={openCart} className="relative rounded-xl h-10" aria-label={t('cart')}>

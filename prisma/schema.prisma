@@ -57,6 +57,8 @@ model Product {
   category             Category    @relation(fields: [categoryId], references: [id])
   subcategory          String      @default("")
   volume               String      @default("")
+  imageUrl             String      @default("")
+  imageSource          String      @default("")
   prescriptionRequired Boolean     @default(false)
   stock                Int         @default(0)
   rating               Float       @default(4.5)

@@ -80,7 +80,7 @@ export async function GET() {
     const orders = await db.order.findMany({
       where: { userId: user.id },
       orderBy: { createdAt: 'desc' },
-      include: { items: true },
+      include: { items: { include: { product: { select: { imageUrl: true, slug: true } } } } },
     })
     return NextResponse.json({ orders })
   } catch (e) {

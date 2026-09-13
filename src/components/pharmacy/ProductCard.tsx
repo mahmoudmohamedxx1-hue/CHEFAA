@@ -15,7 +15,7 @@ export interface P {
   id: string; slug: string; nameEn: string; nameAr: string; brand: string
   price: number; compareAtPrice?: number | null; stock: number; rating: number
   reviewCount: number; prescriptionRequired: boolean; category: { slug: string } | string
-  volume?: string
+  volume?: string; imageUrl?: string | null
 }
 
 export function fmtPrice(v: number, lang: Lang) {
@@ -39,6 +39,7 @@ export function ProductCard({ p }: { p: P }) {
     add({
       productId: p.id, slug: p.slug, nameEn: p.nameEn, nameAr: p.nameAr,
       price: p.price, stock: p.stock, prescriptionRequired: p.prescriptionRequired,
+      imageUrl: p.imageUrl,
     })
     toast({ description: `${name} — ${lang === 'ar' ? 'تمت الإضافة للعربة' : 'Added to cart'}` })
   }
@@ -54,29 +55,35 @@ export function ProductCard({ p }: { p: P }) {
   return (
     <Card
       onClick={() => go(`/p/${p.slug}`)}
-      className="group cursor-pointer overflow-hidden border-border/70 hover:border-primary/40 hover:shadow-lg transition-all duration-300 flex flex-col p-3 gap-3"
+      className="group relative cursor-pointer rounded-2xl border-border/60 bg-card overflow-hidden hover:border-primary/35 hover:shadow-[0_12px_32px_-14px_rgba(13,148,136,0.28)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col p-0 gap-0"
     >
-      <div className="relative">
-        <ProductImage slug={p.slug} category={catSlug} brand={p.brand} className="w-full aspect-square" />
+      {/* image */}
+      <div className="relative p-2.5 pb-0">
+        <ProductImage
+          slug={p.slug} category={catSlug} brand={p.brand} imageUrl={p.imageUrl} alt={name}
+          zoom
+          className="w-full aspect-square rounded-xl border-border/40"
+          rounded="rounded-xl"
+        />
         {discount > 0 && (
-          <Badge className="absolute top-2 start-2 bg-red-500 hover:bg-red-500 text-[11px] font-bold">
+          <Badge className="absolute top-4 start-4 bg-red-500 hover:bg-red-500 text-[11px] font-black shadow-sm">
             -{discount}%
           </Badge>
         )}
         {p.prescriptionRequired && (
-          <Badge variant="secondary" className="absolute top-2 end-2 gap-1 text-[11px] bg-amber-100 text-amber-800 hover:bg-amber-100">
+          <Badge variant="secondary" className="absolute top-4 end-4 gap-1 text-[11px] font-bold bg-amber-100 text-amber-800 hover:bg-amber-100 shadow-sm">
             <FileText className="w-3 h-3" /> {lang === 'ar' ? 'روشتة' : 'Rx'}
           </Badge>
         )}
         <button
           onClick={onWish}
-          aria-label="wishlist"
-          className="absolute bottom-2 start-2 z-10 bg-white/90 backdrop-blur rounded-full p-2.5 shadow-sm hover:scale-110 active:scale-95 transition-transform min-w-11 min-h-11 flex items-center justify-center"
+          aria-label={lang === 'ar' ? 'أضف للمفضلة' : 'Add to wishlist'}
+          className="absolute bottom-4 end-4 z-10 bg-white/95 backdrop-blur rounded-full p-2 shadow-sm hover:scale-110 active:scale-95 transition-transform min-w-9 min-h-9 flex items-center justify-center"
         >
-          <Heart className={`w-4 h-4 ${wishlist.has(p.id) ? 'fill-red-500 text-red-500' : 'text-muted-foreground'}`} />
+          <Heart className={`w-4 h-4 transition-colors ${wishlist.has(p.id) ? 'fill-red-500 text-red-500' : 'text-muted-foreground/80 group-hover:text-red-400'}`} />
         </button>
         {p.stock === 0 && (
-          <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px] flex items-center justify-center">
+          <div className="absolute inset-2.5 rounded-xl bg-white/65 backdrop-blur-[1.5px] flex items-center justify-center">
             <span className="bg-foreground/80 text-white text-xs font-bold px-3 py-1.5 rounded-full">
               {lang === 'ar' ? 'غير متوفر' : 'Out of stock'}
             </span>
@@ -84,24 +91,29 @@ export function ProductCard({ p }: { p: P }) {
         )}
       </div>
 
-      <div className="flex flex-col gap-1.5 flex-1">
-        <span className="text-[11px] font-semibold text-primary/80 uppercase tracking-wide">{p.brand}</span>
-        <h3 className="text-sm font-semibold leading-snug line-clamp-2 group-hover:text-primary transition-colors min-h-[2.5rem]">
+      {/* info */}
+      <div className="flex flex-col gap-1 flex-1 p-3.5 pt-2.5">
+        <span className="text-[10.5px] font-bold text-primary/80 uppercase tracking-[0.08em] truncate">{p.brand}</span>
+        <h3 className="text-[13.5px] font-semibold leading-snug line-clamp-2 group-hover:text-primary transition-colors min-h-[2.4rem]">
           {name}
         </h3>
-        <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-          <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-          <span className="font-semibold text-foreground">{p.rating.toFixed(1)}</span>
-          <span>({p.reviewCount})</span>
+        <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground min-h-[18px]">
+          <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400 shrink-0" />
+          <span className="font-bold text-foreground/90">{p.rating.toFixed(1)}</span>
+          <span className="text-muted-foreground/70">({p.reviewCount})</span>
           {p.stock > 0 && p.stock <= 10 && (
-            <span className="ms-auto text-[11px] font-bold text-amber-600">{lang === 'ar' ? 'كمية محدودة' : `Only ${p.stock} left`}</span>
+            <span className="ms-auto text-[10.5px] font-bold text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded-full">{lang === 'ar' ? 'آخر ' : 'Only '}{p.stock}</span>
           )}
         </div>
-        <div className="mt-auto flex items-end justify-between gap-2 pt-1">
-          <div className="flex flex-col">
-            <span className="text-base font-extrabold text-foreground">{fmtPrice(p.price, lang)}</span>
+
+        <div className="mt-auto flex items-end justify-between gap-2 pt-2 border-t border-border/50">
+          <div className="flex flex-col leading-tight">
+            {p.volume && (
+              <span className="text-[10.5px] text-muted-foreground/80 font-medium mb-0.5 truncate">{p.volume}</span>
+            )}
+            <span className="text-[15px] font-extrabold text-foreground tracking-tight">{fmtPrice(p.price, lang)}</span>
             {discount > 0 && p.compareAtPrice && (
-              <span className="text-xs text-muted-foreground line-through">{fmtPrice(p.compareAtPrice, lang)}</span>
+              <span className="text-[11px] text-muted-foreground/80 line-through">{fmtPrice(p.compareAtPrice, lang)}</span>
             )}
           </div>
           <Button
@@ -109,7 +121,7 @@ export function ProductCard({ p }: { p: P }) {
             onClick={onAdd}
             disabled={p.stock <= 0}
             aria-label={lang === 'ar' ? 'أضف للعربة' : 'Add to cart'}
-            className="rounded-xl h-10 w-10 shrink-0"
+            className="rounded-xl h-10 w-10 shrink-0 shadow-sm group-hover:shadow-md transition-shadow"
           >
             <ShoppingCart className="w-4 h-4" />
           </Button>

@@ -4,9 +4,10 @@ import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 import { Pill, Zap, Sparkles, Waves, Baby, Droplets, Palette, Stethoscope, Heart, PawPrint, ScanText, MessageCircleHeart, ShieldAlert, ArrowRight, Truck, BadgeCheck, Cross, Clock } from 'lucide-react'
 import { useLang } from './LangContext'
-import { useCategories, useProducts, type Product } from './hooks'
+import { useCategories, useProducts, useProductsByIds, type Product } from './hooks'
 import { ProductCard } from './ProductCard'
 import { go } from '@/lib/router'
+import { useRecent } from '@/lib/store'
 import { motion } from 'framer-motion'
 
 const CAT_ICONS: Record<string, any> = {
@@ -38,8 +39,15 @@ export function HomeView() {
   const { data: categories = [] } = useCategories()
   const { data: featured } = useProducts({ featured: 'true', limit: 8 })
   const { data: popular } = useProducts({ sort: 'rating', limit: 8 })
+  const recentIds = useRecent((s) => s.ids)
+  const { data: recentData } = useProductsByIds(recentIds.slice(0, 5), recentIds.length > 0)
 
   const featuredItems: Product[] = featured?.items?.length ? featured.items : popular?.items || []
+  const totalCount = popular?.total || featured?.total || 0
+  const topBrands = (popular?.brands || []).filter((b) => b.count >= 3).slice(0, 12)
+  const recentItems: Product[] = recentIds.length && recentData?.items?.length
+    ? recentIds.slice(0, 5).map((id) => recentData.items.find((p) => p.id === id)).filter(Boolean) as Product[]
+    : []
 
   return (
     <div className="flex flex-col gap-14 pb-14">
@@ -73,7 +81,7 @@ export function HomeView() {
             </div>
             <div className="flex items-center gap-5 pt-4 text-sm">
               <span className="flex flex-col">
-                <span className="text-2xl font-black text-primary">488+</span>
+                <span className="text-2xl font-black text-primary">{totalCount ? `${totalCount}+` : '488+'}</span>
                 <span className="text-xs text-muted-foreground">{lang === 'ar' ? 'منتج أصلي' : 'genuine products'}</span>
               </span>
               <span className="w-px h-8 bg-border" />
@@ -118,6 +126,41 @@ export function HomeView() {
         </div>
       </section>
 
+      {/* ===== TOP BRANDS STRIP ===== */}
+      {topBrands.length > 0 && (
+        <section className="max-w-7xl mx-auto w-full px-4 lg:px-6">
+          <motion.div {...fade} className="flex items-center gap-2 mb-4">
+            <BadgeCheck className="w-4 h-4 text-primary" />
+            <h2 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">{lang === 'ar' ? 'تسوق حسب الماركة' : 'Shop by brand'}</h2>
+          </motion.div>
+          <div className="flex gap-2.5 overflow-x-auto pb-2 -mx-1 px-1 tp-scroll">
+            {topBrands.map((b) => (
+              <button
+                key={b.brand}
+                onClick={() => go(`/search/${encodeURIComponent(b.brand)}`)}
+                className="shrink-0 px-4 h-10 rounded-full border bg-card hover:border-primary/50 hover:text-primary hover:shadow-sm transition-all text-sm font-bold flex items-center gap-2"
+              >
+                {b.brand}
+                <span className="text-[10px] font-semibold text-muted-foreground bg-muted rounded-full px-1.5 py-0.5">{b.count}</span>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ===== RECENTLY VIEWED ===== */}
+      {recentItems.length > 0 && (
+        <section className="max-w-7xl mx-auto w-full px-4 lg:px-6">
+          <motion.div {...fade} className="flex items-center gap-2 mb-5">
+            <Clock className="w-4 h-4 text-primary" />
+            <h2 className="text-xl sm:text-2xl font-black tracking-tight">{lang === 'ar' ? 'شاهدت مؤخراً' : 'Recently viewed'}</h2>
+          </motion.div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {recentItems.map((p) => <ProductCard key={p.id} p={p} />)}
+          </div>
+        </section>
+      )}
+
       {/* ===== CATEGORIES ===== */}
       <section className="max-w-7xl mx-auto w-full px-4 lg:px-6">
         <motion.div {...fade} className="flex items-end justify-between mb-6">
@@ -131,18 +174,35 @@ export function HomeView() {
             return (
               <motion.button
                 key={c.slug}
-                initial={{ opacity: 0, scale: 0.92 }}
+                initial={{ opacity: 0, scale: 0.94 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04, duration: 0.35 }}
                 onClick={() => go(`/c/${c.slug}`)}
-                className={`group flex flex-col items-center gap-3 p-5 rounded-3xl border bg-card hover:border-primary/40 hover:shadow-lg hover:-translate-y-0.5 transition-all ${CAT_TINTS[c.slug] || 'bg-accent text-primary'}`}
+                className="group relative flex flex-col items-center gap-2.5 p-4 pt-3 rounded-3xl border border-border/60 bg-card overflow-hidden hover:border-primary/40 hover:shadow-[0_12px_32px_-14px_rgba(13,148,136,0.3)] hover:-translate-y-0.5 transition-all"
               >
-                <span className={`w-12 h-12 rounded-2xl flex items-center justify-center ${CAT_TINTS[c.slug] || 'bg-primary/10 text-primary'} group-hover:scale-110 transition-transform`}>
-                  <Icon className="w-6 h-6" />
+                {/* real product photo as tile backdrop */}
+                {c.coverImage ? (
+                  <span className="relative flex items-center justify-center w-full h-20 rounded-2xl bg-gradient-to-b from-muted/60 to-white overflow-hidden">
+                    <img
+                      src={c.coverImage}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-contain p-1.5 group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </span>
+                ) : (
+                  <span className={`flex items-center justify-center w-full h-20 rounded-2xl ${CAT_TINTS[c.slug] || 'bg-primary/10 text-primary'}`}>
+                    <Icon className="w-8 h-8" />
+                  </span>
+                )}
+                <span className={`absolute top-4 end-4 w-8 h-8 rounded-xl flex items-center justify-center ${CAT_TINTS[c.slug] || 'bg-primary/10 text-primary'} shadow-sm`}
+                  aria-hidden>
+                  <Icon className="w-4 h-4" />
                 </span>
-                <span className="text-sm font-bold text-center leading-tight">{lang === 'ar' ? c.nameAr : c.nameEn}</span>
-                <span className="text-[11px] text-muted-foreground">{c.productCount} {lang === 'ar' ? 'منتج' : 'items'}</span>
+                <span className="text-[13px] font-bold text-center leading-tight">{lang === 'ar' ? c.nameAr : c.nameEn}</span>
+                <span className="text-[11px] text-muted-foreground -mt-1.5">{c.productCount} {lang === 'ar' ? 'منتج' : 'items'}</span>
               </motion.button>
             )
           })}
@@ -151,12 +211,16 @@ export function HomeView() {
 
       {/* ===== FEATURED PRODUCTS ===== */}
       <section className="max-w-7xl mx-auto w-full px-4 lg:px-6">
-        <motion.div {...fade} className="flex items-end justify-between mb-6">
-          <h2 className="text-2xl sm:text-3xl font-black tracking-tight">{t('featured_products')}</h2>
+        <motion.div {...fade} className="flex items-end justify-between mb-2">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-black tracking-tight">{t('featured_products')}</h2>
+            <p className="text-sm text-muted-foreground mt-1">{t('featured_sub')}</p>
+          </div>
           <Button variant="ghost" onClick={() => go('/c/medications')} className="text-primary font-bold gap-1.5">
             {t('view_all')} <ArrowRight className="w-4 h-4 flip-x rtl:rotate-180" />
           </Button>
         </motion.div>
+        <div className="h-4" />
         {featuredItems.length === 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {Array.from({ length: 8 }).map((_, i) => (
@@ -169,6 +233,22 @@ export function HomeView() {
           </div>
         )}
       </section>
+
+      {/* ===== BEST SELLERS ===== */}
+      {popular?.items?.length ? (
+        <section className="max-w-7xl mx-auto w-full px-4 lg:px-6">
+          <motion.div {...fade} className="flex items-end justify-between mb-2">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-black tracking-tight">{t('best_sellers')}</h2>
+              <p className="text-sm text-muted-foreground mt-1">{t('best_sellers_sub')}</p>
+            </div>
+          </motion.div>
+          <div className="h-4" />
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {popular.items.slice(0, 8).map((p) => <ProductCard key={p.id} p={p} />)}
+          </div>
+        </section>
+      ) : null}
 
       {/* ===== AI TOOLS ===== */}
       <section className="max-w-7xl mx-auto w-full px-4 lg:px-6">

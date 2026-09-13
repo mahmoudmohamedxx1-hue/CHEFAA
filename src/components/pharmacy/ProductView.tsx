@@ -1,11 +1,11 @@
 'use client'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Star, ShoppingCart, Minus, Plus, FileText, ShieldCheck, Truck, Cross, Package, ChevronRight } from 'lucide-react'
+import { Star, ShoppingCart, Minus, Plus, FileText, ShieldCheck, Truck, Cross, Package, ChevronRight, Banknote, Timer, ZoomIn } from 'lucide-react'
 import { useLang } from './LangContext'
 import { useProduct, type Product } from './hooks'
 import { ProductCard, fmtPrice } from './ProductCard'
@@ -23,6 +23,17 @@ export function ProductView({ slug }: { slug: string }) {
   const pushRecent = useRecent((s) => s.push)
   const { toast } = useToast()
   const [qty, setQty] = useState(1)
+  const zoomRef = useRef<HTMLDivElement>(null)
+  const [zoomStyle, setZoomStyle] = useState<React.CSSProperties>({})
+
+  const onZoomMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = zoomRef.current
+    if (!el) return
+    const r = el.getBoundingClientRect()
+    const x = ((e.clientX - r.left) / r.width) * 100
+    const y = ((e.clientY - r.top) / r.height) * 100
+    setZoomStyle({ transformOrigin: `${x}% ${y}%` })
+  }
 
   useEffect(() => {
     if (data?.product) pushRecent(data.product.id)
@@ -61,6 +72,7 @@ export function ProductView({ slug }: { slug: string }) {
     add({
       productId: p.id, slug: p.slug, nameEn: p.nameEn, nameAr: p.nameAr,
       price: p.price, stock: p.stock, prescriptionRequired: p.prescriptionRequired,
+      imageUrl: p.imageUrl,
     }, qty)
     toast({ description: `${name} — ${lang === 'ar' ? 'تمت الإضافة للعربة' : 'Added to cart'}` })
   }
@@ -79,10 +91,32 @@ export function ProductView({ slug }: { slug: string }) {
 
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
         <div className="flex flex-col gap-4">
-          <div className="relative">
-            <ProductImage slug={p.slug} category={p.category.slug} brand={p.brand} className="w-full aspect-square rounded-3xl border" rounded="rounded-3xl" />
+          <div
+            ref={zoomRef}
+            onMouseMove={onZoomMove}
+            onMouseLeave={() => setZoomStyle({})}
+            className="group/zoom relative overflow-hidden rounded-3xl border shadow-sm"
+            aria-hidden={false}
+          >
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-accent/40 to-transparent pointer-events-none z-0" />
+            {p.imageUrl ? (
+              <img
+                src={p.imageUrl}
+                alt={name}
+                className="relative z-10 w-full aspect-square object-contain p-6 transition-transform duration-300 ease-out group-hover/zoom:scale-[1.6]"
+                style={zoomStyle}
+              />
+            ) : (
+              <ProductImage slug={p.slug} category={p.category.slug} brand={p.brand} imageUrl={p.imageUrl} alt={name} className="relative z-10 w-full aspect-square" rounded="rounded-3xl" />
+            )}
             {discount > 0 && (
-              <Badge className="absolute top-4 start-4 bg-red-500 hover:bg-red-500 text-sm font-black px-3 py-1.5">-{discount}% {t('off')}</Badge>
+              <Badge className="absolute top-4 start-4 z-20 bg-red-500 hover:bg-red-500 text-sm font-black px-3 py-1.5 shadow-md">-{discount}% {t('off')}</Badge>
+            )}
+            {p.imageUrl && (
+              <span className="absolute bottom-4 end-4 z-20 text-[10px] font-bold text-muted-foreground bg-white/90 backdrop-blur px-2.5 py-1 rounded-full shadow-sm opacity-0 group-hover/zoom:opacity-100 transition-opacity inline-flex items-center gap-1">
+                <ZoomIn className="w-3 h-3" />
+                {lang === 'ar' ? 'مرّر للتكبير' : 'Hover to zoom'}
+              </span>
             )}
           </div>
           <div className="grid grid-cols-3 gap-3">
@@ -146,6 +180,19 @@ export function ProductView({ slug }: { slug: string }) {
 
           <Separator />
 
+          {/* delivery / payment reassurance chips */}
+          <div className="flex flex-col gap-2">
+            <span className="flex items-center gap-2 text-[13px] font-medium text-foreground/80">
+              <Timer className="w-4 h-4 text-primary shrink-0" /> {t('delivery_express')}
+            </span>
+            <span className="flex items-center gap-2 text-[13px] font-medium text-foreground/80">
+              <Truck className="w-4 h-4 text-primary shrink-0" /> {t('delivery_nationwide')}
+            </span>
+            <span className="flex items-center gap-2 text-[13px] font-medium text-foreground/80">
+              <Banknote className="w-4 h-4 text-primary shrink-0" /> {t('cod_available')}
+            </span>
+          </div>
+
           <div className="flex items-center gap-3">
             <div className="flex items-center border rounded-2xl overflow-hidden h-12">
               <button onClick={() => setQty((q) => Math.max(1, q - 1))} className="w-11 h-full flex items-center justify-center hover:bg-accent transition-colors" aria-label="decrease">
@@ -171,7 +218,12 @@ export function ProductView({ slug }: { slug: string }) {
               <TabsTrigger value="desc" className="rounded-lg font-semibold">{t('description')}</TabsTrigger>
             </TabsList>
             <TabsContent value="desc" className="mt-4">
-              <p className="text-sm leading-relaxed text-muted-foreground">{desc || (lang === 'ar' ? 'منتج أصلي من ذا فارميسي.' : 'Genuine product from The Pharmacy.')}</p>
+              <p className="text-sm md:text-[15px] leading-7 text-foreground/85 whitespace-pre-line">{desc || (lang === 'ar' ? 'منتج أصلي من ذا فارميسي.' : 'Genuine product from The Pharmacy.')}</p>
+              {p.prescriptionRequired && (
+                <p className="mt-3 text-xs font-semibold text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2.5">
+                  {lang === 'ar' ? 'تنبيه: يصرف هذا الدواء بروشتة طبية فقط. يرجى استشارة الطبيب أو الصيدلي قبل الاستخدام.' : 'Note: This medication requires a valid prescription. Please consult your doctor or pharmacist before use.'}
+                </p>
+              )}
               <Separator className="my-4" />
               <div className="grid grid-cols-2 gap-3 text-sm">
                 <div className="flex justify-between p-3 rounded-xl bg-muted/40">

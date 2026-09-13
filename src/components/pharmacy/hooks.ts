@@ -1,13 +1,13 @@
 'use client'
 import { useQuery } from '@tanstack/react-query'
 
-export interface Category { slug: string; nameEn: string; nameAr: string; descEn: string; descAr: string; productCount: number }
+export interface Category { slug: string; nameEn: string; nameAr: string; descEn: string; descAr: string; productCount: number; coverImage?: string }
 
 export interface Product {
   id: string; slug: string; nameEn: string; nameAr: string; brand: string
   descEn: string; descAr: string; price: number; compareAtPrice: number | null
   stock: number; rating: number; reviewCount: number; popularity: number
-  prescriptionRequired: boolean; volume: string; subcategory: string
+  prescriptionRequired: boolean; volume: string; subcategory: string; imageUrl: string
   category: { slug: string; nameEn: string; nameAr: string }
 }
 
@@ -40,6 +40,21 @@ export function useProducts(params: Record<string, string | number | undefined>,
       return res.json()
     },
     enabled,
+  })
+}
+
+export function useProductsByIds(ids: string[], enabled = true) {
+  const qs = new URLSearchParams()
+  if (ids.length) qs.set('ids', ids.join(','))
+  qs.set('limit', '10')
+  return useQuery<ProductsResponse>({
+    queryKey: ['products-by-ids', ids.join(',')],
+    queryFn: async () => {
+      const res = await fetch(`/api/products?${qs.toString()}`)
+      return res.json()
+    },
+    enabled: enabled && ids.length > 0,
+    staleTime: 60 * 1000,
   })
 }
 

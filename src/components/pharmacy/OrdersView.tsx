@@ -8,6 +8,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { Package, Clock, CheckCircle2, Truck, XCircle, Loader2, PackageOpen, MapPin, Phone, Mail, CalendarDays } from 'lucide-react'
 import { useLang } from './LangContext'
 import { fmtPrice } from './ProductCard'
+import { ProductImage } from './ProductImage'
 import { go } from '@/lib/router'
 import { zoneById, ORDER_STATUSES } from '@/lib/zones'
 
@@ -96,9 +97,12 @@ export function OrdersView() {
 
                 <div className="flex flex-col gap-2">
                   {o.items.map((it: any) => (
-                    <div key={it.id} className="flex items-center justify-between text-sm">
-                      <span className="font-medium line-clamp-1">{lang === 'ar' ? it.nameAr : it.nameEn} × {it.quantity}</span>
-                      <span className="font-bold shrink-0 ms-3">{fmtPrice(it.price * it.quantity, lang)}</span>
+                    <div key={it.id} className="flex items-center justify-between text-sm gap-3">
+                      <span className="flex items-center gap-2.5 min-w-0">
+                        <ProductImage slug={it.product?.slug || it.id} category="pill" brand="" imageUrl={it.product?.imageUrl} alt={lang === 'ar' ? it.nameAr : it.nameEn} className="w-10 h-10 shrink-0 rounded-lg border-border/50" rounded="rounded-lg" />
+                        <span className="font-medium line-clamp-1">{lang === 'ar' ? it.nameAr : it.nameEn} × {it.quantity}</span>
+                      </span>
+                      <span className="font-bold shrink-0">{fmtPrice(it.price * it.quantity, lang)}</span>
                     </div>
                   ))}
                 </div>

@@ -14,10 +14,12 @@ export async function GET(req: NextRequest) {
     const rx = sp.get('rx') // 'true' | 'false' | undefined
     const inStock = sp.get('inStock') === 'true'
     const featured = sp.get('featured') === 'true'
+    const ids = (sp.get('ids') || '').split(',').filter(Boolean)
     const page = Math.max(1, Number(sp.get('page') || 1))
     const limit = Math.min(60, Math.max(1, Number(sp.get('limit') || 24)))
 
     const where: Prisma.ProductWhereInput = {}
+    if (ids.length) where.id = { in: ids }
     if (category) where.category = { slug: category }
     if (featured) where.isFeatured = true
     if (brand) where.brand = { equals: brand }

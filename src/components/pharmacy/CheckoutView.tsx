@@ -11,6 +11,7 @@ import { Separator } from '@/components/ui/separator'
 import { Banknote, MapPin, Phone, Truck, ShoppingBag, Loader2, ShieldCheck } from 'lucide-react'
 import { useCart } from '@/lib/store'
 import { useLang } from './LangContext'
+import { ProductImage } from './ProductImage'
 import { fmtPrice } from './ProductCard'
 import { go } from '@/lib/router'
 import { ZONES, FREE_DELIVERY_THRESHOLD } from '@/lib/zones'
@@ -172,10 +173,13 @@ export function CheckoutView() {
           <h2 className="font-black text-lg">{t('order_summary')}</h2>
           <div className="flex flex-col gap-3 max-h-64 overflow-y-auto pe-1">
             {items.map((i) => (
-              <div key={i.productId} className="flex items-start justify-between gap-3 text-sm">
-                <span className="min-w-0">
-                  <span className="block font-medium line-clamp-1">{lang === 'ar' ? i.nameAr : i.nameEn}</span>
-                  <span className="text-xs text-muted-foreground">× {i.qty}</span>
+              <div key={i.productId} className="flex items-center justify-between gap-3 text-sm">
+                <span className="flex items-center gap-2.5 min-w-0">
+                  <ProductImage slug={i.slug} category="pill" brand="" imageUrl={i.imageUrl} alt={lang === 'ar' ? i.nameAr : i.nameEn} className="w-11 h-11 shrink-0 rounded-lg border-border/50" rounded="rounded-lg" />
+                  <span className="min-w-0">
+                    <span className="block font-medium line-clamp-1">{lang === 'ar' ? i.nameAr : i.nameEn}</span>
+                    <span className="text-xs text-muted-foreground">× {i.qty}</span>
+                  </span>
                 </span>
                 <span className="font-bold shrink-0">{fmtPrice(i.price * i.qty, lang)}</span>
               </div>
