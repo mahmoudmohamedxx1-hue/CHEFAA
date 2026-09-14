@@ -58,7 +58,7 @@ export function ProductCard({ p }: { p: P }) {
       className="group relative cursor-pointer rounded-2xl border-border/60 bg-card overflow-hidden shadow-[0_1px_2px_rgba(16,40,55,0.04)] hover:border-primary/35 hover:shadow-[0_14px_36px_-14px_rgba(13,148,136,0.3)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col p-0 gap-0"
     >
       {/* image */}
-      <div className="relative p-3 pb-0">
+      <div className="relative p-2.5 pb-0 sm:p-3 sm:pb-0">
         <ProductImage
           slug={p.slug} category={catSlug} brand={p.brand} imageUrl={p.imageUrl} alt={name}
           zoom
@@ -66,12 +66,12 @@ export function ProductCard({ p }: { p: P }) {
           rounded="rounded-xl"
         />
         {discount > 0 && (
-          <Badge className="absolute top-4 start-4 bg-red-500 hover:bg-red-500 text-[11px] font-black shadow-sm">
+          <Badge className="absolute top-4 start-3.5 sm:top-4 sm:start-4 bg-red-500 hover:bg-red-500 text-[11px] font-black shadow-sm">
             -{discount}%
           </Badge>
         )}
         {p.prescriptionRequired && (
-          <Badge variant="secondary" className="absolute top-4 end-4 gap-1 text-[11px] font-bold bg-amber-100 text-amber-800 hover:bg-amber-100 shadow-sm">
+          <Badge variant="secondary" className="absolute top-4 end-3.5 sm:top-4 sm:end-4 gap-1 text-[11px] font-bold bg-amber-100 text-amber-800 hover:bg-amber-100 shadow-sm">
             <FileText className="w-3 h-3" /> {lang === 'ar' ? 'روشتة' : 'Rx'}
           </Badge>
         )}
@@ -92,7 +92,7 @@ export function ProductCard({ p }: { p: P }) {
       </div>
 
       {/* info */}
-      <div className="flex flex-col gap-1 flex-1 p-4 pt-3">
+      <div className="flex flex-col gap-1 flex-1 p-3.5 pt-3 sm:p-4 sm:pt-3">
         <span className="text-[10.5px] font-bold text-primary/80 uppercase tracking-[0.08em] truncate">{p.brand}</span>
         <h3 className="text-sm font-semibold leading-snug line-clamp-2 group-hover:text-primary transition-colors min-h-[2.5rem]">
           {name}

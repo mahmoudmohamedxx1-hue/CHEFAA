@@ -40,8 +40,9 @@ export const db =
   globalForPrisma.prisma ??
   new PrismaClient({
     datasources: { db: { url: resolveDbUrl() } },
-    // Query logging is useful locally but too noisy on hosted platforms
-    log: process.env.NODE_ENV === "production" ? ["error", "warn"] : ["query"],
+    // Keep logging minimal — query logging floods dev.log and slows the
+    // dev server down with the tee pipeline.
+    log: ["error", "warn"],
   });
 
 if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = db;

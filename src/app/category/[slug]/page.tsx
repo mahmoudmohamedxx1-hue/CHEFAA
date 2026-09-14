@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { db } from "@/lib/db";
+import { getCategories, getProducts } from "@/lib/catalog";
 import { CategoryView } from "@/components/pharmacy/CategoryView";
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -34,6 +35,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CategoryPage({ params }: Props) {
   const { slug } = await params;
+  // SSR the default first page (unfiltered, sorted by popularity) so the
+  // grid paints immediately with the HTML; filters re-fetch client-side.
+  const [categories, products] = await Promise.all([
+    getCategories(),
+    getProducts({ category: slug, sort: "popular", page: 1, limit: 24 }),
+  ]);
+
   // key={slug} forces a clean remount when switching categories
-  return <CategoryView key={slug} categorySlug={slug} />;
+  return (
+    <CategoryView
+      key={slug}
+      categorySlug={slug}
+      initial={{ categories, products }}
+    />
+  );
 }

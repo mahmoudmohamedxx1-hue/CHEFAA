@@ -18,11 +18,15 @@ import { go } from '@/lib/router'
 interface Props {
   categorySlug?: string
   searchQuery?: string
+  initial?: {
+    categories: import('./hooks').Category[]
+    products: import('./hooks').ProductsResponse
+  }
 }
 
-export function CategoryView({ categorySlug, searchQuery }: Props) {
+export function CategoryView({ categorySlug, searchQuery, initial }: Props) {
   const { lang, t } = useLang()
-  const { data: categories = [] } = useCategories()
+  const { data: categories = [] } = useCategories(initial?.categories)
   const category = categories.find((c) => c.slug === categorySlug)
 
   const [page, setPage] = useState(1)
@@ -39,7 +43,13 @@ export function CategoryView({ categorySlug, searchQuery }: Props) {
     min: min > 0 ? min : undefined, max: max < 2500 ? max : undefined,
     brand: brand || undefined, rx: rx || undefined, inStock: inStock ? 'true' : undefined,
   }
-  const { data, isLoading } = useProducts(params)
+  // SSR initial data is only valid for the default (unfiltered) first page —
+  // the query key changes with any filter, and seeding it there would be wrong.
+  // (The server fetched this data WITH the current category/search query,
+  // which are part of the query key, so they don't need excluding here.)
+  const isDefaultView = page === 1 && sort === 'popular'
+    && min === 0 && max === 2500 && !brand && !rx && !inStock
+  const { data, isLoading } = useProducts(params, true, isDefaultView ? initial?.products : undefined)
   const items: Product[] = data?.items || []
   const pages = data?.pages || 1
   const total = data?.total || 0

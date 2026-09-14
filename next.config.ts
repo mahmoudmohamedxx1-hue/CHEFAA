@@ -34,6 +34,20 @@ const nextConfig: NextConfig = {
         source: "/manifest.webmanifest",
         headers: [{ key: "Cache-Control", value: "public, max-age=3600" }],
       },
+      {
+        // Product photos: filenames are stable — cache hard for repeat visits
+        source: "/images/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      {
+        // PWA icons / splash screens
+        source: "/icons/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
     ];
   },
 };

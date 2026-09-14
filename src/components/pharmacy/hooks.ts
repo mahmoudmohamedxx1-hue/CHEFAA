@@ -1,5 +1,5 @@
 'use client'
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, keepPreviousData } from '@tanstack/react-query'
 
 export interface Category { slug: string; nameEn: string; nameAr: string; descEn: string; descAr: string; productCount: number; coverImage?: string }
 
@@ -16,7 +16,7 @@ export interface ProductsResponse {
   brands: { brand: string; count: number }[]
 }
 
-export function useCategories() {
+export function useCategories(initial?: Category[]) {
   return useQuery<Category[]>({
     queryKey: ['categories'],
     queryFn: async () => {
@@ -24,11 +24,16 @@ export function useCategories() {
       const d = await res.json()
       return d.categories
     },
+    initialData: initial,
     staleTime: 5 * 60 * 1000,
   })
 }
 
-export function useProducts(params: Record<string, string | number | undefined>, enabled = true) {
+export function useProducts(
+  params: Record<string, string | number | undefined>,
+  enabled = true,
+  initial?: ProductsResponse
+) {
   const qs = new URLSearchParams()
   Object.entries(params).forEach(([k, v]) => {
     if (v !== undefined && v !== '' && v !== null) qs.set(k, String(v))
@@ -40,6 +45,12 @@ export function useProducts(params: Record<string, string | number | undefined>,
       return res.json()
     },
     enabled,
+    // Server-rendered initial data (SSR) — no flash of empty state on load
+    initialData: initial,
+    // Cached for a while so back/forward navigation is instant
+    staleTime: 60 * 1000,
+    // Keep the previous page visible while the next one loads (pagination)
+    placeholderData: keepPreviousData,
   })
 }
 
@@ -58,7 +69,10 @@ export function useProductsByIds(ids: string[], enabled = true) {
   })
 }
 
-export function useProduct(idOrSlug: string | undefined) {
+export function useProduct(
+  idOrSlug: string | undefined,
+  initial?: { product: Product; related: Product[] }
+) {
   return useQuery<{ product: Product; related: Product[] }>({
     queryKey: ['product', idOrSlug],
     queryFn: async () => {
@@ -67,5 +81,7 @@ export function useProduct(idOrSlug: string | undefined) {
       return res.json()
     },
     enabled: !!idOrSlug,
+    initialData: idOrSlug ? initial : undefined,
+    staleTime: 60 * 1000,
   })
 }

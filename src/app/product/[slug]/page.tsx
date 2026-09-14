@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { db } from "@/lib/db";
+import { getProductDetail } from "@/lib/catalog";
 import { ProductView } from "@/components/pharmacy/ProductView";
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -53,14 +54,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
 
-  const p = await db.product.findUnique({
-    where: { slug },
-    select: {
-      nameEn: true, nameAr: true, descEn: true, descAr: true,
-      imageUrl: true, price: true, stock: true, slug: true,
-      brand: true, rating: true, reviewCount: true,
-    },
-  });
+  // One query feeds the JSON-LD below AND the client view's initial data —
+  // the product detail paints with the HTML instead of waiting on JS + API.
+  const [p, detail] = await Promise.all([
+    db.product.findUnique({
+      where: { slug },
+      select: {
+        nameEn: true, nameAr: true, descEn: true, descAr: true,
+        imageUrl: true, price: true, stock: true, slug: true,
+        brand: true, rating: true, reviewCount: true,
+      },
+    }),
+    getProductDetail(slug),
+  ]);
 
   // schema.org structured data for rich Google results
   const jsonLd = p
@@ -101,7 +107,7 @@ export default async function ProductPage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       )}
-      <ProductView slug={slug} />
+      <ProductView slug={slug} initial={detail ?? undefined} />
     </>
   );
 }

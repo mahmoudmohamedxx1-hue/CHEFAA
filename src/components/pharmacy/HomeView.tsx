@@ -28,17 +28,25 @@ const SLUG_ICON: Record<string, string> = {
 }
 
 const fade = {
-  initial: { opacity: 0, y: 16 },
+  initial: { opacity: 0, y: 14 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-60px' },
-  transition: { duration: 0.45 },
+  viewport: { once: true, margin: '-40px' },
+  transition: { duration: 0.32 },
 }
 
-export function HomeView() {
+export interface HomeInitialData {
+  categories: import('./hooks').Category[]
+  featured: import('./hooks').ProductsResponse
+  popular: import('./hooks').ProductsResponse
+}
+
+export function HomeView({ initial }: { initial?: HomeInitialData }) {
   const { lang, t } = useLang()
-  const { data: categories = [] } = useCategories()
-  const { data: featured } = useProducts({ featured: 'true', limit: 8 })
-  const { data: popular } = useProducts({ sort: 'rating', limit: 8 })
+  // Server-rendered initial data (SSR/ISR): content paints with the HTML —
+  // react-query then refreshes in the background when the cache goes stale.
+  const { data: categories = [] } = useCategories(initial?.categories)
+  const { data: featured } = useProducts({ featured: 'true', limit: 8 }, true, initial?.featured)
+  const { data: popular } = useProducts({ sort: 'rating', limit: 8 }, true, initial?.popular)
   const recentIds = useRecent((s) => s.ids)
   const { data: recentData } = useProductsByIds(recentIds.slice(0, 5), recentIds.length > 0)
 

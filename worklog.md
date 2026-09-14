@@ -203,3 +203,26 @@ Stage Summary:
 - Preview HERE fixed (dev server running with allowedDevOrigins for the space-z.ai proxy; dashboard verified rendering in browser)
 - Repo now matches the user's proven netstream/egxdesk deployment pattern: one build works on this platform AND Vercel (Vercel ignores standalone, platform serves it)
 - .env.example finally tracked; platform infra (.zscripts/Caddyfile) tracked like egxdesk
+
+---
+Task ID: 10
+Agent: Super Z (main agent)
+Task: Performance overhaul (slow loads) + window-sizing improvements
+
+Work Log:
+- Diagnosed: server was fast (80ms TTFB) but every page rendered an EMPTY client shell -> JS -> 3+ API round trips -> then images; plus Prisma query logging flooding dev.log via tee pipeline; zero client cache (staleTime 0 on products)
+- Created src/lib/catalog.ts (getCategories/getProducts/getProductDetail) as single source of truth shared by API routes AND server components
+- Rewrote API routes (categories, products, products/[id]) to delegate to catalog lib — behavior identical
+- SSR + ISR: home page now server-fetches categories+featured+popular (revalidate=300, static ○ 5m); category/[slug], search/[q] and product/[slug] pages server-fetch first-page/detail data and pass as react-query initialData (guarded against wrong-key seeding via isDefaultView check in CategoryView)
+- hooks.ts: initialData support, staleTime 60s on all product queries, keepPreviousData for smooth pagination
+- db.ts: dropped query logging (was flooding dev.log + tee overhead)
+- next.config: immutable 1y cache headers for /images/* and /icons/*
+- ProductImage: width/height attrs (CLS); ProductCard: mobile padding tuning (p-2.5 sm:p-3, badge offsets); HomeView fade animation 0.45->0.32s
+- Verified: home HTML now embeds 52 product images + real names (was 0 — 81KB->203KB HTML); FCP 508ms with 26 product imgs rendered; category SSR 34 imgs; product page DCL 278ms with title/price/add-btn; add-to-cart E2E pass (localStorage tp-cart 1 item); lint clean; production build exit 0 — home = ○ Static (ISR 5m) + 1y cache
+- Restarted sandbox preview dev server; all routes 200
+
+Stage Summary:
+- First paint now shows real content on home/category/search/product (no more empty-shell waterfall)
+- Repeat visits: product images cached 1 year immutable; react-query caches 60s; back/forward nav instant
+- Dev preview faster (no query-log overhead); production home page served as static ISR page from CDN
+- Remaining known item: 14 branded products still on initials-fallback artwork (image-search service down)

@@ -17,9 +17,9 @@ import { useRecent } from '@/lib/store'
 import { useToast } from '@/hooks/use-toast'
 import { useEffect } from 'react'
 
-export function ProductView({ slug }: { slug: string }) {
+export function ProductView({ slug, initial }: { slug: string; initial?: { product: any; related: any[] } }) {
   const { lang, t } = useLang()
-  const { data, isLoading, isError } = useProduct(slug)
+  const { data, isLoading, isError } = useProduct(slug, initial)
   const add = useCart((s) => s.add)
   const pushRecent = useRecent((s) => s.push)
   const { toast } = useToast()
