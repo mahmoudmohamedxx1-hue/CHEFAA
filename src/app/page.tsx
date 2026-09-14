@@ -1,5 +1,5 @@
-import PharmacyApp from "@/components/pharmacy/PharmacyApp";
+import { HomeView } from "@/components/pharmacy/HomeView";
 
 export default function Home() {
-  return <PharmacyApp />;
+  return <HomeView />;
 }

@@ -1,53 +1,41 @@
 'use client'
-import { useState, useEffect, useCallback } from 'react'
+// Path-based routing with shareable URLs (/product/x, /category/x, ...)
+// Keeps full backward compatibility with the legacy hash routes (#/p/x, #/c/x, ...)
+// by remapping old segments to the new clean paths.
 
-export interface Route {
-  view: string
-  params: string[]
-  query: Record<string, string>
+// legacy hash segment -> new path segment
+const SEGMENT_MAP: Record<string, string> = {
+  p: 'product',
+  c: 'category',
+  success: 'order-success',
 }
 
-function parse(): Route {
-  const raw = window.location.hash.replace(/^#\/?/, '')
-  const [pathPart, queryPart] = raw.split('?')
-  const segs = pathPart.split('/').filter(Boolean)
-  const query: Record<string, string> = {}
-  if (queryPart) {
-    for (const kv of queryPart.split('&')) {
-      const [k, v] = kv.split('=')
-      if (k) query[decodeURIComponent(k)] = decodeURIComponent(v || '')
-    }
-  }
-  return { view: segs[0] || 'home', params: segs.slice(1), query }
+/** Normalize any legacy/hash target into a clean app path. */
+export function normalizePath(to: string): string {
+  if (typeof to !== 'string' || !to) return '/'
+  let path = to.startsWith('#') ? to.slice(1) : to
+  if (!path.startsWith('/')) path = '/' + path
+
+  const qi = path.indexOf('?')
+  const query = qi >= 0 ? path.slice(qi) : ''
+  const head = (qi >= 0 ? path.slice(0, qi) : path).replace(/\/+$/, '')
+  const segs = head.split('/')
+  if (segs.length > 1 && SEGMENT_MAP[segs[1]]) segs[1] = SEGMENT_MAP[segs[1]]
+  return (segs.join('/') || '/') + query
 }
 
-export function useHashRoute(): [Route, (to: string) => void] {
-  const [route, setRoute] = useState<Route>({ view: 'home', params: [], query: {} })
+// The Next.js router push function is captured here so the imperative `go()`
+// helper can trigger client-side navigation from anywhere (event handlers, etc.)
+// without a full page reload.
+let routerPush: ((path: string, scroll?: boolean) => void) | null = null
 
-  useEffect(() => {
-    const update = () => {
-      setRoute(parse())
-      window.scrollTo({ top: 0 })
-    }
-    update()
-    window.addEventListener('hashchange', update)
-    return () => window.removeEventListener('hashchange', update)
-  }, [])
-
-  const nav = useCallback((to: string) => {
-    const target = to.startsWith('#') ? to : `#${to.startsWith('/') ? to : '/' + to}`
-    if (window.location.hash === target) {
-      // same route: force re-parse (e.g. new search)
-      setRoute(parse())
-      window.scrollTo({ top: 0 })
-    } else {
-      window.location.hash = target
-    }
-  }, [])
-
-  return [route, nav]
+export function bindRouter(push: (path: string, scroll?: boolean) => void) {
+  routerPush = push
 }
 
+/** Navigate to a route. Accepts new paths (/product/x) and legacy hash paths (#/p/x). */
 export const go = (to: string) => {
-  window.location.hash = to.startsWith('#') ? to : `#${to.startsWith('/') ? to : '/' + to}`
+  const path = normalizePath(to)
+  if (routerPush) routerPush(path)
+  else if (typeof window !== 'undefined') window.location.assign(path)
 }

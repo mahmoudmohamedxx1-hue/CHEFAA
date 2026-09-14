@@ -1,0 +1,41 @@
+{
+  "id": "/",
+  "name": "The Pharmacy | ذا فارميسي",
+  "short_name": "The Pharmacy",
+  "description": "Egypt's AI-powered online pharmacy — upload your prescription, let AI read it, check drug interactions and get genuine medicines delivered fast across Egypt.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "dir": "rtl",
+  "lang": "ar",
+  "theme_color": "#0d9488",
+  "background_color": "#f8fafc",
+  "categories": ["medical", "health", "shopping"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Upload Prescription — رفع الروشتة",
+      "short_name": "Rx Reader",
+      "url": "/prescription",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "AI Health Assistant — المساعد الصحي",
+      "short_name": "Assistant",
+      "url": "/assistant",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "My Orders — طلباتي",
+      "short_name": "Orders",
+      "url": "/orders",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

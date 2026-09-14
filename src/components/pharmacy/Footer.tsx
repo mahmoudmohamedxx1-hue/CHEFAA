@@ -2,12 +2,13 @@
 import { Cross, Mail, Phone, MapPin, Sparkles, Heart, ShieldCheck, MessageCircle } from 'lucide-react'
 import { useLang } from './LangContext'
 import { go } from '@/lib/router'
+import { InstallAppButton } from './InstallAppButton'
 
 export function Footer() {
   const { t, lang } = useLang()
 
   return (
-    <footer className="mt-auto bg-foreground text-white/80">
+    <footer className="mt-auto bg-foreground text-white/80 safe-bottom">
       <div className="max-w-7xl mx-auto px-4 lg:px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2.5">
@@ -34,6 +35,7 @@ export function Footer() {
             <button onClick={() => go('/assistant')} className="hover:text-primary transition-colors text-start">{t('ai_chat_title')}</button>
             <button onClick={() => go('/interactions')} className="hover:text-primary transition-colors text-start">{t('ai_ddi_title')}</button>
             <button onClick={() => go('/orders')} className="hover:text-primary transition-colors text-start">{t('my_orders')}</button>
+            <InstallAppButton variant="footer" />
           </div>
         </div>
 

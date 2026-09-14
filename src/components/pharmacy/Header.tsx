@@ -11,6 +11,7 @@ import { go } from '@/lib/router'
 import { useToast } from '@/hooks/use-toast'
 import { fmtPrice } from './ProductCard'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { InstallAppButton } from './InstallAppButton'
 
 interface Suggestion {
   id: string; slug: string; nameEn: string; nameAr: string; price: number; brand: string; stock: number; imageUrl?: string | null
@@ -70,8 +71,8 @@ export function Header({ categories }: { categories: Cat[] }) {
 
   return (
     <header className="sticky top-0 z-50 bg-white/85 backdrop-blur-xl border-b border-border/70 shadow-[0_1px_20px_-12px_rgba(13,148,136,0.35)]">
-      {/* promo strip */}
-      <div className="bg-primary text-primary-foreground overflow-hidden">
+      {/* promo strip (safe-top fills the iOS notch / status-bar area in standalone mode) */}
+      <div className="bg-primary text-primary-foreground overflow-hidden safe-top">
         <div className="tp-marquee py-1.5 text-[11px] font-semibold whitespace-nowrap">
           {[0, 1].map((i) => (
             <span key={i} className="flex shrink-0">
@@ -261,6 +262,8 @@ export function Header({ categories }: { categories: Cat[] }) {
                   <button onClick={() => { setMenuOpen(false); go('/interactions') }} className="w-full flex items-center gap-2.5 px-3 py-3 rounded-xl hover:bg-accent/60 text-sm font-semibold text-primary transition-colors">
                     <Heart className="w-4 h-4" /> {t('ai_ddi_title')}
                   </button>
+                  <div className="my-2 border-t" />
+                  <InstallAppButton />
                 </div>
               </SheetContent>
             </Sheet>

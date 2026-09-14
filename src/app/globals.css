@@ -158,3 +158,16 @@ body { min-height: 100vh; }
 
 /* Hide number input arrows */
 input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* ===== PWA / native-app polish ===== */
+/* iOS safe areas (notch, home indicator). env() is 0 outside standalone/notched contexts. */
+.safe-top { padding-top: env(safe-area-inset-top); }
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+.safe-bottom-x { padding-bottom: calc(env(safe-area-inset-bottom) + 1rem); }
+
+/* Installed-app feel: no pull-to-refresh, no tap highlight, no text selection callout */
+@media (display-mode: standalone) {
+  html { overscroll-behavior-y: none; }
+  body { -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; user-select: none; }
+  input, textarea, [contenteditable] { user-select: text; -webkit-touch-callout: default; }
+}

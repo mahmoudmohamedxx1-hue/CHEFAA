@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { LayoutDashboard, Package, ShoppingCart, Users, FileText, AlertTriangle, TrendingUp, Search, Loader2, Save, Pill, IndianRupee } from 'lucide-react'
 import { useLang } from './LangContext'
+import { go } from '@/lib/router'
 import { fmtPrice } from './ProductCard'
 import { ORDER_STATUSES } from '@/lib/zones'
 import { useToast } from '@/hooks/use-toast'
@@ -59,7 +60,7 @@ export function AdminView() {
         </span>
         <p className="font-bold text-lg">{t('admin_forbidden')}</p>
         <p className="text-sm text-muted-foreground font-mono">admin@thepharmacy.com / Admin@2026</p>
-        <Button onClick={() => window.location.hash = '/login'} variant="outline" className="rounded-xl font-bold">{t('login')}</Button>
+        <Button onClick={() => go('/login')} variant="outline" className="rounded-xl font-bold">{t('login')}</Button>
       </div>
     )
   }

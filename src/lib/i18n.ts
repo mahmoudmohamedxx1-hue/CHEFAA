@@ -276,6 +276,21 @@ export const T = {
   best_sellers: { en: 'Best sellers', ar: 'الأكثر مبيعاً' },
   best_sellers_sub: { en: 'Most-loved products by our customers', ar: 'المنتجات المفضلة لعملائنا' },
   featured_sub: { en: 'Hand-picked by our pharmacists', ar: 'مختارة بعناية من صيادلتنا' },
+
+  // PWA install
+  install_app: { en: 'Install App', ar: 'تثبيت التطبيق' },
+  install_app_sub: { en: 'Add The Pharmacy to your home screen — it works like a native app', ar: 'أضف ذا فارميسي لشاشتك الرئيسية — يعمل مثل تطبيق أصلي' },
+  install_success: { en: 'App installed! Find it on your home screen', ar: 'تم تثبيت التطبيق! ستجده على شاشتك الرئيسية' },
+  install_ios_h: { en: 'Add to Home Screen', ar: 'إضافة إلى الشاشة الرئيسية' },
+  install_ios_1: { en: 'Open The Pharmacy in the Safari browser', ar: 'افتح الموقع في متصفح Safari' },
+  install_ios_2: { en: 'Tap the Share button', ar: 'اضغط على زر المشاركة' },
+  install_ios_3: { en: 'Scroll down and tap “Add to Home Screen”', ar: 'انزل للأسفل واضغط «إضافة إلى الشاشة الرئيسية»' },
+  install_ios_4: { en: 'Tap “Add” — The Pharmacy will open like a native app', ar: 'اضغط «إضافة» — وسيعمل الموقع مثل تطبيق أصلي' },
+  install_android_h: { en: 'Install The Pharmacy App', ar: 'ثبّت تطبيق ذا فارميسي' },
+  install_now: { en: 'Install now', ar: 'ثبّت الآن' },
+  offline_title: { en: 'You are offline', ar: 'أنت غير متصل بالإنترنت' },
+  offline_sub: { en: 'Check your connection — pages you visited recently still work offline', ar: 'تحقق من اتصالك — الصفحات التي زرتها حديثاً تعمل بدون إنترنت' },
+  offline_retry: { en: 'Try again', ar: 'حاول مرة أخرى' },
 } as const
 
 export type TKey = keyof typeof T
