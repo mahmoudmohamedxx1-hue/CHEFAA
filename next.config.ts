@@ -1,11 +1,12 @@
 import type { NextConfig } from "next";
 
-// `output: standalone` is used for self-hosting (VPS/bun). Vercel builds its
-// own output format, so standalone mode is disabled there automatically.
-const isVercel = Boolean(process.env.VERCEL);
+// `output: standalone` is ONLY for self-hosting (VPS / this sandbox's bun
+// runtime) and is opt-in via SELF_HOST=1. Vercel, v0 and plain `next start`
+// all use the standard build output, which is what those platforms expect.
+const isSelfHost = process.env.SELF_HOST === "1";
 
 const nextConfig: NextConfig = {
-  ...(isVercel ? {} : { output: "standalone" as const }),
+  ...(isSelfHost ? { output: "standalone" as const } : {}),
   /* config options here */
   typescript: {
     ignoreBuildErrors: true,

@@ -163,3 +163,22 @@ Stage Summary:
 - Vercel build is now reproducibly green locally under identical conditions (bun, frozen lockfile, no env)
 - User action needed: pull/redeploy on Vercel (or Vercel auto-rebuilds on push), set NEXT_PUBLIC_SITE_URL, open the URL from the dashboard
 - Known runtime caveats on Vercel: SQLite writes ephemeral (documented), AI routes need provider credentials (documented)
+
+---
+Task ID: 8
+Agent: Super Z (main agent)
+Task: Make the repo run on v0 preview (user: v0 sandbox missing /vercel/share/v0-runtime/next-adapter.mjs, Next.js shuts down before rendering)
+
+Work Log:
+- Read sandbox infra (.zscripts/dev.sh, build.sh, start.sh): sandbox serves standalone server.js via bun; dev.sh waits on port 3000 via `bun run dev`
+- Made the repo 100% vanilla Next.js by default: package.json scripts -> dev: `next dev`, build: `next build` (+postbuild), start: `next start`, added engines.node>=20; kept postinstall: prisma generate
+- Made `output: "standalone"` opt-in via SELF_HOST=1 (next.config.ts + scripts/postbuild.mjs gating); .zscripts/build.sh now exports SELF_HOST=1 so this sandbox/VPS flow is unchanged
+- Added start:standalone + dev:log script variants for self-hosting/sandbox debugging
+- Untracked sandbox-only artifacts from git (kept on disk): .zscripts/, Caddyfile, tool-results/, examples/, mini-services/, tests/ — v0 clone now gets a clean app repo
+- Verified vanilla path: `bun run build` exit 0 (no standalone dir produced), `next start` smoke test 200s on /, /product/[slug], /api/products, /sitemap.xml
+- Verified self-host path: SELF_HOST=1 build exit 0, standalone packaged (server.js/db/public/static), bun server 200s on / and product page
+- Lint clean; DEPLOY.md gained a "Opening the preview on v0" section (runtime error explanation, reconnect-repo recovery steps, SELF_HOST note)
+
+Stage Summary:
+- Repo is now a bog-standard Next.js project on default paths (what v0/Vercel expect); standalone only when SELF_HOST=1
+- The missing next-adapter.mjs is a v0-sandbox-internal file (their own analysis says preview runtime issue) — repo-side compatibility is now maximal; user should reconnect the GitHub repo in v0 Project Settings after pulling latest main

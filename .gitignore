@@ -61,3 +61,11 @@ chefaa-source/
 
 # chat file uploads
 upload/
+
+# sandbox runtime artifacts (kept on disk, not part of the app repo)
+.zscripts/
+Caddyfile
+tool-results/
+examples/
+mini-services/
+tests/

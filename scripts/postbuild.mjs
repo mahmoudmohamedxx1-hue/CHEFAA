@@ -1,10 +1,9 @@
 /**
- * Post-build step for the self-hosted (standalone) flow.
- *
- * `next build` with `output: "standalone"` produces .next/standalone but does
- * NOT copy static assets, public/ or the SQLite catalog into it — the server
- * needs all three at runtime. On Vercel this script is a no-op (Vercel builds
- * its own output format and standalone mode is disabled there).
+ * Post-build step for the self-hosted (standalone) flow — enabled ONLY when
+ * SELF_HOST=1 is set (VPS / sandbox). `next build` with `output: "standalone"`
+ * produces .next/standalone but does NOT copy static assets, public/ or the
+ * SQLite catalog into it — the server needs all three at runtime.
+ * Everywhere else (Vercel, v0, plain `next start`) this is a no-op.
  */
 import { cpSync, existsSync } from "node:fs";
 import path from "node:path";
@@ -12,8 +11,7 @@ import path from "node:path";
 const root = process.cwd();
 const standalone = path.join(root, ".next", "standalone");
 
-if (process.env.VERCEL) {
-  console.log("postbuild: Vercel detected — skipping standalone packaging");
+if (process.env.SELF_HOST !== "1") {
   process.exit(0);
 }
 

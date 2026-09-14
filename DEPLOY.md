@@ -94,6 +94,27 @@ After pulling the latest `main`, Vercel rebuilds automatically (or hit **Deploym
 
 The 3 AI features (Rx OCR, health assistant, interaction checker) call the AI service from the server-side API routes. On this sandbox they work out of the box; on your own Vercel account they need the AI service credentials configured as environment variables — otherwise the rest of the store works fine and the AI endpoints return a friendly error. Contact your AI provider for the key values.
 
+## 4. Opening the preview on v0
+
+The repo is fully standard Next.js — `dev` / `build` / `start` use the plain framework commands, the Prisma client is generated automatically on install (`postinstall`), and the SQLite catalog is committed at `db/custom.db` so **no environment variables are required** to boot the preview.
+
+If v0 shows *"`/vercel/share/v0-runtime/next-adapter.mjs` is missing, Next.js shuts down before rendering"* — that error is inside v0's own preview runtime, not in the app code (the app builds and boots green with the standard `next build` / `next start`). To recover on v0's side:
+
+1. In the v0 project → **Settings → Git** → **Disconnect** the repository, then **Connect** it again (this re-initializes the sandbox runtime)
+2. Or open the **Deployments/Preview** list and trigger a fresh build of the latest commit
+3. If it still shows the same missing-file error, report it to v0 support — the file lives in their sandbox image, outside the repo
+
+### Self-hosting note
+
+`output: "standalone"` (used by VPS deployments and this workspace) is now **opt-in** via `SELF_HOST=1`:
+
+```bash
+SELF_HOST=1 npm run build      # produces .next/standalone with assets + db
+npm run start:standalone       # bun .next/standalone/server.js
+```
+
+Without `SELF_HOST=1` the build is a standard Next.js build — which is what Vercel and v0 expect.
+
 ### Important — SQLite on Vercel
 
 The app currently uses a **SQLite file** (`db/custom.db`) committed to the repo. On Vercel:
