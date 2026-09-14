@@ -90,3 +90,32 @@ Stage Summary:
 - UI: search-with-thumbnails, polished cards, long-description UX, improved hierarchy
 - Environment notes: sandbox reaps background processes (must run long jobs in foreground chunks); z-ai image-search down all session; Meilisearch rate-limits at ~1000 req (403, recovers after cooldown); external retail sites (amazon search, walmart, bing, google) all bot-blocked from this egress
 - Pending: 14 branded product photos (needs image-search service recovery, script ready)
+
+---
+Task ID: 5
+Agent: Super Z (main agent)
+Task: Shareable deep links per page + PWA app shell (installable mobile app) + admin/GitHub instructions
+
+Work Log:
+- Rewrote src/lib/router.ts: path-based go() with bindRouter (Next router captured in Providers), normalizePath remaps legacy hash segments (#/p/x -> /product/x, #/c/x -> /category/x, #/success/x -> /order-success/x); all 60+ existing call sites keep working unchanged
+- New Providers.tsx (QueryClient + AppProvider + router bind + legacy-hash redirect + SW/install registration) and SiteChrome.tsx (Header/main/Footer/CartDrawer at layout level); deleted PharmacyApp.tsx; state (cart/lang/wishlist) persists across navigations
+- Created 17 route pages: /, /product/[slug], /category/[slug], /search/[q], /cart, /checkout, /order-success/[id], /login, /register, /orders, /account, /wishlist, /prescription, /assistant, /interactions, /admin, /offline
+- SEO: server-rendered generateMetadata via Prisma (bilingual titles, real descriptions, OG/Twitter cards with product images -> WhatsApp link previews), schema.org Product JSON-LD with offers/rating, sitemap.ts (496 products + 10 categories + static), robots.ts (admin/api excluded), metadataBase from NEXT_PUBLIC_SITE_URL
+- PWA: public/manifest.webmanifest (standalone, rtl, teal theme, shortcuts: Rx/Assistant/Orders), public/sw.js app-shell SW (network-first pages w/ /offline fallback, cache-first immutable assets, network-first images+API, auth excluded), PIL-generated brand icons (192/512 any+maskable, apple-touch-icon, favicon) + 13 iOS splash screens (436KB total)
+- Install flow: src/lib/pwa.ts (useSyncExternalStore hooks — lint-clean), InstallAppButton in mobile menu + footer; Android native prompt, iOS 4-step Add-to-Home-Screen dialog (bilingual); hidden when standalone
+- iOS native feel: apple-mobile-web-app-capable meta (Next 16 only emits mobile-web-app-capable), 13 startup images w/ media queries, viewportFit cover, safe-area CSS utilities (promo strip extends under notch, footer respects home indicator), standalone-mode CSS (no pull-to-refresh/tap highlight)
+- Fixed: lucide SmartPhone->Smartphone, Safari->Compass; SW registration readyState guard; AdminView window.location.hash -> go('/login')
+- next.config.ts: no-cache headers for /sw.js; .gitignore: untracked SQLite -shm/-wal runtime files; DEPLOY.md (admin creds, GitHub push, Vercel + SQLite-on-serverless caveat + Turso/VPS paths, PWA testing, URL map)
+
+Verification (all passed):
+- 23 routes HTTP 200 incl. /sitemap.xml, /robots.txt, /manifest.webmanifest, /sw.js, icons
+- E2E browser: click vitamins -> /category/vitamins -> click product -> /product/redoxon-double-action-30-tablets; fresh-tab deep link opens product directly (not home); legacy #/p/x redirects to clean URL; search -> /search/panadol; add-to-cart -> checkout (zone New Cairo) -> order TP placed -> /order-success/[id]; /admin gate -> login admin@thepharmacy.com -> dashboard renders
+- SW: registered + ACTIVE; 4 cache layers verified (shell 6, pages 2, assets 23 immutable fonts, api 3); offline page load works
+- Meta verified in HTML: bilingual og:title, og:image 800x800, JSON-LD, apple capable/startup-image/manifest links
+- lint clean; dev.log clean post-fixes; VLM QA: home 7/10, install dialog 8/10, product 6/10 (Redoxon = one of 14 known branded-initials fallbacks, image-search service still down, fetch_missing_images.mjs retried: 0/14)
+
+Stage Summary:
+- Every page now has its own shareable clean URL; old hash links still work
+- Installable PWA: home-screen icon, standalone native-like iOS experience w/ splash screens, offline app shell
+- Committed e647fd7 on main; no remote configured yet (DEPLOY.md has push instructions)
+- Known limitation: SQLite writes ephemeral on Vercel serverless (documented + migration paths)
