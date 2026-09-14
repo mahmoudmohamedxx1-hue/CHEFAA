@@ -106,14 +106,13 @@ If v0 shows *"`/vercel/share/v0-runtime/next-adapter.mjs` is missing, Next.js sh
 
 ### Self-hosting note
 
-`output: "standalone"` (used by VPS deployments and this workspace) is now **opt-in** via `SELF_HOST=1`:
+The build uses the same pattern as the other apps in this workspace family (netstream / egxdesk): `output: "standalone"` is always on, and `npm run build` packages a self-contained server at `.next/standalone/` (server.js + static assets + public/ + the SQLite catalog + prisma). Vercel ignores the standalone folder and serves its own output — both platforms work from the exact same build.
 
 ```bash
-SELF_HOST=1 npm run build      # produces .next/standalone with assets + db
-npm run start:standalone       # bun .next/standalone/server.js
+bun install            # or npm install — generates the Prisma client automatically
+bun run build          # or npm run build — works for Vercel AND self-hosting
+npm run start          # self-host: bun .next/standalone/server.js (port 3000)
 ```
-
-Without `SELF_HOST=1` the build is a standard Next.js build — which is what Vercel and v0 expect.
 
 ### Important — SQLite on Vercel
 

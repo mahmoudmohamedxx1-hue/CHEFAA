@@ -32,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -62,10 +63,11 @@ chefaa-source/
 # chat file uploads
 upload/
 
-# sandbox runtime artifacts (kept on disk, not part of the app repo)
-.zscripts/
-Caddyfile
+# reference clones (netstream/egxdesk configs) — local only
+.reference/
+
+# sandbox runtime artifacts — dev junk stays out, platform infra is tracked (egxdesk pattern)
+.zscripts/dev.pid
 tool-results/
 examples/
-mini-services/
 tests/

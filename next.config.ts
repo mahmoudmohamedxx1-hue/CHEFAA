@@ -1,17 +1,17 @@
 import type { NextConfig } from "next";
 
-// `output: standalone` is ONLY for self-hosting (VPS / this sandbox's bun
-// runtime) and is opt-in via SELF_HOST=1. Vercel, v0 and plain `next start`
-// all use the standard build output, which is what those platforms expect.
-const isSelfHost = process.env.SELF_HOST === "1";
-
+// Same deployment pattern as the other apps in this workspace family
+// (netstream / egxdesk): `output: "standalone"` is unconditional — the
+// sandbox/VPS runtime serves .next/standalone/server.js, while Vercel
+// builds its own output and simply ignores the standalone folder.
 const nextConfig: NextConfig = {
-  ...(isSelfHost ? { output: "standalone" as const } : {}),
-  /* config options here */
+  output: "standalone",
   typescript: {
     ignoreBuildErrors: true,
   },
   reactStrictMode: false,
+  // Allow the preview proxy origin to access the dev server without warnings.
+  allowedDevOrigins: ["*.space-z.ai", "localhost", "127.0.0.1"],
   // Ship the committed SQLite catalog + prisma engine inside every serverless
   // function that reads the database (catalog APIs, SSR product pages, sitemap).
   outputFileTracingIncludes: {

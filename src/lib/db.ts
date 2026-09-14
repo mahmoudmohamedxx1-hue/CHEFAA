@@ -1,22 +1,47 @@
-import path from 'path'
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from "@prisma/client";
+import path from "node:path";
+import fs from "node:fs";
 
-// Default database location so the app also works when no .env is present
-// (e.g. on Vercel, where the seeded db/custom.db is committed to the repo).
-// An explicit DATABASE_URL from the environment always wins.
-if (!process.env.DATABASE_URL) {
-  process.env.DATABASE_URL = `file:${path.join(process.cwd(), 'db', 'custom.db')}`
+/**
+ * The SQLite catalog lives at <project>/db/custom.db (committed to the repo).
+ * Prisma resolves relative `file:` URLs against the process CWD, which breaks
+ * in `output: standalone` mode (the server runs from .next/standalone) and in
+ * serverless bundles. Probe a few well-known locations and pass an absolute
+ * URL via the runtime `datasources` override so every launch mode works:
+ * project root, .next/standalone (db copied in by the build script), one or
+ * two levels below the root, or derived from the server.js location.
+ * An explicit DATABASE_URL from the environment always wins.
+ */
+function resolveDbUrl(): string {
+  if (process.env.DATABASE_URL) return process.env.DATABASE_URL;
+
+  const cwd = process.cwd();
+  const argv1 = process.argv[1] ?? "";
+  const serverDir = path.dirname(path.resolve(argv1));
+  const candidates = [
+    path.join(cwd, "db", "custom.db"), // launched from project root
+    path.join(cwd, "..", "db", "custom.db"), // launched one level below root
+    path.join(cwd, "..", "..", "db", "custom.db"), // launched from .next/standalone
+    path.join(serverDir, "..", "..", "db", "custom.db"), // derived from server.js location
+  ];
+  for (const c of candidates) {
+    try {
+      if (fs.existsSync(c)) return `file:${c}`;
+    } catch {}
+  }
+  return `file:${candidates[0]}`;
 }
 
 const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined
-}
+  prisma: PrismaClient | undefined;
+};
 
 export const db =
   globalForPrisma.prisma ??
   new PrismaClient({
-    // Query logging is useful locally but far too noisy on hosted platforms
-    log: process.env.NODE_ENV === 'production' ? ['error'] : ['query'],
-  })
+    datasources: { db: { url: resolveDbUrl() } },
+    // Query logging is useful locally but too noisy on hosted platforms
+    log: process.env.NODE_ENV === "production" ? ["error", "warn"] : ["query"],
+  });
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = db
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = db;

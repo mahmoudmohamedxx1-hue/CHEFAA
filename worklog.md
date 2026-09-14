@@ -182,3 +182,24 @@ Work Log:
 Stage Summary:
 - Repo is now a bog-standard Next.js project on default paths (what v0/Vercel expect); standalone only when SELF_HOST=1
 - The missing next-adapter.mjs is a v0-sandbox-internal file (their own analysis says preview runtime issue) — repo-side compatibility is now maximal; user should reconnect the GitHub repo in v0 Project Settings after pulling latest main
+
+---
+Task ID: 9
+Agent: Super Z (main agent)
+Task: Fix dashboard not opening in the preview HERE; align repo with the user's preferred stack pattern (netstream / egxdesk) so it works HERE and on Vercel
+
+Work Log:
+- Diagnosed preview failure: nothing listening on :3000 (sandbox reaped the dev server); Caddyfile confirms preview proxy -> localhost:3000
+- Cloned user's reference repos (github.com/mahmoudmohamedxx1-hue/netstream + egxdesk) and studied their working configs
+- Adopted netstream pattern: dev `next dev -p 3000 | tee dev.log`; build `next build && cp static/public/db/prisma into .next/standalone && rm -f standalone/.env`; start standalone via bun; postinstall `prisma generate`; unconditional `output: standalone`; `allowedDevOrigins: ["*.space-z.ai", "localhost", "127.0.0.1"]` (preview proxy origin)
+- Adopted egxdesk pattern: db.ts resolveDbUrl() probing (project root / one level up / two levels up / server.js dir) passed via Prisma datasources override — works in dev, standalone, and serverless; DATABASE_URL env still wins if set
+- Re-tracked platform infra in git (egxdesk does this): .zscripts (minus dev.pid), Caddyfile, mini-services/.gitkeep; removed SELF_HOST gating + scripts/postbuild.mjs (cp now inline, netstream-style)
+- Fixed .gitignore: `!.env.example` (was silently ignored, never committed); added .reference/ (clones) ignore; eslint flat-config ignores for .reference/ + chefaa-source/ (their files caused lint errors)
+- VERIFIED ALL FOUR RUNTIMES: (1) Vercel-sim: no .env + fresh install (postinstall generates client) + VERCEL=1 bun run build exit 0, all 30 routes; (2) Vercel-style `next start`: 9 endpoints 200; (3) platform standalone (bun server.js, no .env): 5 endpoints 200 + admin login 200 + admin stats JSON (496 products/7 orders/1951 EGP); (4) preview dev server via dev.sh: up on :3000, all endpoints 200
+- Browser-level verification (agent-browser): login as admin -> /admin renders full dashboard (stats cards, orders table with status dropdowns, tabs) — screenshot /tmp/admin-dash.png
+- Lint clean; DEPLOY.md updated (SELF_HOST removed, netstream-pattern build documented)
+
+Stage Summary:
+- Preview HERE fixed (dev server running with allowedDevOrigins for the space-z.ai proxy; dashboard verified rendering in browser)
+- Repo now matches the user's proven netstream/egxdesk deployment pattern: one build works on this platform AND Vercel (Vercel ignores standalone, platform serves it)
+- .env.example finally tracked; platform infra (.zscripts/Caddyfile) tracked like egxdesk
