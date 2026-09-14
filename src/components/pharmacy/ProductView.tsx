@@ -1,5 +1,6 @@
 'use client'
 import { useRef, useState } from 'react'
+import { ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -23,6 +24,7 @@ export function ProductView({ slug }: { slug: string }) {
   const pushRecent = useRecent((s) => s.push)
   const { toast } = useToast()
   const [qty, setQty] = useState(1)
+  const [descOpen, setDescOpen] = useState(false)
   const zoomRef = useRef<HTMLDivElement>(null)
   const [zoomStyle, setZoomStyle] = useState<React.CSSProperties>({})
 
@@ -103,7 +105,7 @@ export function ProductView({ slug }: { slug: string }) {
               <img
                 src={p.imageUrl}
                 alt={name}
-                className="relative z-10 w-full aspect-square object-contain p-6 transition-transform duration-300 ease-out group-hover/zoom:scale-[1.6]"
+                className="relative z-10 w-full aspect-square object-contain p-3 transition-transform duration-300 ease-out group-hover/zoom:scale-[1.6]"
                 style={zoomStyle}
               />
             ) : (
@@ -218,7 +220,23 @@ export function ProductView({ slug }: { slug: string }) {
               <TabsTrigger value="desc" className="rounded-lg font-semibold">{t('description')}</TabsTrigger>
             </TabsList>
             <TabsContent value="desc" className="mt-4">
-              <p className="text-sm md:text-[15px] leading-7 text-foreground/85 whitespace-pre-line">{desc || (lang === 'ar' ? 'منتج أصلي من ذا فارميسي.' : 'Genuine product from The Pharmacy.')}</p>
+              <div
+                className={`text-sm md:text-[15px] leading-7 text-foreground/85 whitespace-pre-line ${!descOpen && (desc || '').length > 420 ? 'max-h-[130px] overflow-hidden relative' : ''}`}
+              >
+                {desc || (lang === 'ar' ? 'منتج أصلي من ذا فارميسي.' : 'Genuine product from The Pharmacy.')}
+                {!descOpen && (desc || '').length > 420 && (
+                  <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-card to-transparent" />
+                )}
+              </div>
+              {(desc || '').length > 420 && (
+                <button
+                  onClick={() => setDescOpen((v) => !v)}
+                  className="mt-1 text-sm font-bold text-primary inline-flex items-center gap-1 hover:gap-1.5 transition-all"
+                >
+                  {descOpen ? (lang === 'ar' ? 'عرض أقل' : 'Show less') : (lang === 'ar' ? 'اقرأ المزيد' : 'Read more')}
+                  <ChevronDown className={`w-4 h-4 transition-transform ${descOpen ? 'rotate-180' : ''}`} />
+                </button>
+              )}
               {p.prescriptionRequired && (
                 <p className="mt-3 text-xs font-semibold text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2.5">
                   {lang === 'ar' ? 'تنبيه: يصرف هذا الدواء بروشتة طبية فقط. يرجى استشارة الطبيب أو الصيدلي قبل الاستخدام.' : 'Note: This medication requires a valid prescription. Please consult your doctor or pharmacist before use.'}

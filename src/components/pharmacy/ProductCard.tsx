@@ -39,7 +39,7 @@ export function ProductCard({ p }: { p: P }) {
     add({
       productId: p.id, slug: p.slug, nameEn: p.nameEn, nameAr: p.nameAr,
       price: p.price, stock: p.stock, prescriptionRequired: p.prescriptionRequired,
-      imageUrl: p.imageUrl,
+      imageUrl: p.imageUrl || undefined,
     })
     toast({ description: `${name} — ${lang === 'ar' ? 'تمت الإضافة للعربة' : 'Added to cart'}` })
   }
@@ -55,10 +55,10 @@ export function ProductCard({ p }: { p: P }) {
   return (
     <Card
       onClick={() => go(`/p/${p.slug}`)}
-      className="group relative cursor-pointer rounded-2xl border-border/60 bg-card overflow-hidden hover:border-primary/35 hover:shadow-[0_12px_32px_-14px_rgba(13,148,136,0.28)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col p-0 gap-0"
+      className="group relative cursor-pointer rounded-2xl border-border/60 bg-card overflow-hidden shadow-[0_1px_2px_rgba(16,40,55,0.04)] hover:border-primary/35 hover:shadow-[0_14px_36px_-14px_rgba(13,148,136,0.3)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col p-0 gap-0"
     >
       {/* image */}
-      <div className="relative p-2.5 pb-0">
+      <div className="relative p-3 pb-0">
         <ProductImage
           slug={p.slug} category={catSlug} brand={p.brand} imageUrl={p.imageUrl} alt={name}
           zoom
@@ -92,9 +92,9 @@ export function ProductCard({ p }: { p: P }) {
       </div>
 
       {/* info */}
-      <div className="flex flex-col gap-1 flex-1 p-3.5 pt-2.5">
+      <div className="flex flex-col gap-1 flex-1 p-4 pt-3">
         <span className="text-[10.5px] font-bold text-primary/80 uppercase tracking-[0.08em] truncate">{p.brand}</span>
-        <h3 className="text-[13.5px] font-semibold leading-snug line-clamp-2 group-hover:text-primary transition-colors min-h-[2.4rem]">
+        <h3 className="text-sm font-semibold leading-snug line-clamp-2 group-hover:text-primary transition-colors min-h-[2.5rem]">
           {name}
         </h3>
         <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground min-h-[18px]">
@@ -106,12 +106,12 @@ export function ProductCard({ p }: { p: P }) {
           )}
         </div>
 
-        <div className="mt-auto flex items-end justify-between gap-2 pt-2 border-t border-border/50">
-          <div className="flex flex-col leading-tight">
+        <div className="mt-auto flex items-end justify-between gap-2.5 pt-2.5 border-t border-border/50">
+          <div className="flex flex-col leading-tight min-w-0">
             {p.volume && (
               <span className="text-[10.5px] text-muted-foreground/80 font-medium mb-0.5 truncate">{p.volume}</span>
             )}
-            <span className="text-[15px] font-extrabold text-foreground tracking-tight">{fmtPrice(p.price, lang)}</span>
+            <span className="text-base font-extrabold text-foreground tracking-tight whitespace-nowrap">{fmtPrice(p.price, lang)}</span>
             {discount > 0 && p.compareAtPrice && (
               <span className="text-[11px] text-muted-foreground/80 line-through">{fmtPrice(p.compareAtPrice, lang)}</span>
             )}
@@ -121,9 +121,9 @@ export function ProductCard({ p }: { p: P }) {
             onClick={onAdd}
             disabled={p.stock <= 0}
             aria-label={lang === 'ar' ? 'أضف للعربة' : 'Add to cart'}
-            className="rounded-xl h-10 w-10 shrink-0 shadow-sm group-hover:shadow-md transition-shadow"
+            className="rounded-xl h-11 w-11 shrink-0 shadow-sm group-hover:shadow-[0_6px_16px_-6px_rgba(13,148,136,0.5)] group-hover:bg-primary group-hover:text-primary-foreground transition-all"
           >
-            <ShoppingCart className="w-4 h-4" />
+            <ShoppingCart className="w-4.5 h-4.5" />
           </Button>
         </div>
       </div>

@@ -13,7 +13,7 @@ import { fmtPrice } from './ProductCard'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 
 interface Suggestion {
-  id: string; slug: string; nameEn: string; nameAr: string; price: number; brand: string; stock: number
+  id: string; slug: string; nameEn: string; nameAr: string; price: number; brand: string; stock: number; imageUrl?: string | null
   category: { slug: string }
 }
 
@@ -107,7 +107,7 @@ export function Header({ categories }: { categories: Cat[] }) {
                 onChange={(e) => { setQ(e.target.value); setShowSugg(true) }}
                 onFocus={() => setShowSugg(true)}
                 placeholder={t('search_placeholder')}
-                className="ps-10 pe-4 h-11 rounded-2xl bg-muted/60 border-border/70 focus-visible:ring-primary/40"
+                className="ps-10 pe-4 h-11 rounded-2xl bg-white border-border shadow-[0_1px_6px_rgba(16,40,55,0.06)] focus-visible:ring-primary/40 focus-visible:border-primary/50"
                 aria-label={t('search_placeholder')}
               />
             </form>
@@ -117,9 +117,15 @@ export function Header({ categories }: { categories: Cat[] }) {
                   <button
                     key={s.id}
                     onClick={() => { setShowSugg(false); go(`/p/${s.slug}`) }}
-                    className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-accent/60 text-start transition-colors"
+                    className="w-full flex items-center gap-3 px-3.5 py-2.5 hover:bg-accent/60 text-start transition-colors"
                   >
-                    <Search className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+                    <span className="w-10 h-10 rounded-lg bg-muted/50 border border-border/40 overflow-hidden flex items-center justify-center shrink-0">
+                      {s.imageUrl ? (
+                        <img src={s.imageUrl} alt="" className="w-full h-full object-contain p-0.5" loading="lazy" />
+                      ) : (
+                        <Search className="w-3.5 h-3.5 text-muted-foreground" />
+                      )}
+                    </span>
                     <span className="flex-1 min-w-0">
                       <span className="block text-sm font-medium truncate">{lang === 'ar' ? s.nameAr : s.nameEn}</span>
                       <span className="block text-[11px] text-muted-foreground">{s.brand}</span>
@@ -127,6 +133,13 @@ export function Header({ categories }: { categories: Cat[] }) {
                     <span className="text-xs font-bold text-primary shrink-0">{fmtPrice(s.price, lang)}</span>
                   </button>
                 ))}
+                <button
+                  onClick={() => doSearch()}
+                  className="w-full flex items-center justify-center gap-1.5 px-4 py-2.5 text-xs font-bold text-primary bg-accent/40 hover:bg-accent/70 border-t transition-colors"
+                >
+                  <Search className="w-3.5 h-3.5" />
+                  {lang === 'ar' ? `عرض كل النتائج عن "${q}"` : `See all results for "${q}"`}
+                </button>
               </div>
             )}
           </div>

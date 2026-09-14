@@ -21,7 +21,7 @@ export async function GET(req: NextRequest) {
       take: 8,
       select: {
         id: true, slug: true, nameEn: true, nameAr: true,
-        price: true, brand: true, stock: true,
+        price: true, brand: true, stock: true, imageUrl: true,
         category: { select: { slug: true } },
       },
     })
