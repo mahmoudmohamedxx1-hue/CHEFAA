@@ -119,3 +119,25 @@ Stage Summary:
 - Installable PWA: home-screen icon, standalone native-like iOS experience w/ splash screens, offline app shell
 - Committed e647fd7 on main; no remote configured yet (DEPLOY.md has push instructions)
 - Known limitation: SQLite writes ephemeral on Vercel serverless (documented + migration paths)
+
+---
+Task ID: 6
+Agent: Super Z (main agent)
+Task: Push The Pharmacy to the user's GitHub repo (same repo as chefaa-source origin) using user-provided PAT
+
+Work Log:
+- Verified token via API: user mahmoudmohamedxx1-hue, scope=repo (push capable)
+- Located target repo: local chefaa-source/.git remote = https://github.com/mahmoudmohamedxx1-hue/CHEFAA.git (private) — the "same repo"
+- Pre-flight scan: found tracked .env (benign, only local DATABASE_URL) and broken chefaa-source gitlink (mode 160000, no .gitmodules); no secrets/tokens in tree; largest blob 4.7MB
+- SQLite WAL checkpoint (was already clean): db/custom.db 1.44MB with 496 products, 10 categories, 7 orders, 15 items, 2 users, 2 prescriptions
+- Hygiene commit 85bacc0: untracked .env + chefaa-source gitlink, gitignored chefaa-source/, committed fresh db checkpoint; set git identity to 224795331+mahmoudmohamedxx1-hue@users.noreply.github.com
+- Preserved old remote main (research data) by pushing chefaa-source main -> new branch research-data on CHEFAA
+- Force-pushed app main -> CHEFAA main (histories unrelated): b5f0b1e...85bacc0; set upstream origin/main
+- Stripped PAT from remote URL after push (verified .git/config clean)
+- Verified via API: main HEAD=85bacc0, root tree = app (src/public/db/prisma/DEPLOY.md), .env ABSENT, 482 product images, product/category/[slug] routes 200, manifest/sw/icons 200, default branch=main
+- Updated DEPLOY.md section 2 with real repo URL, branch map (main=app, research-data=old data), day-to-day push workflow
+
+Stage Summary:
+- Live at https://github.com/mahmoudmohamedxx1-hue/CHEFAA: main = The Pharmacy (full history, ~25MB), research-data = original scraping data preserved, v0/add-vercel-link untouched
+- .env untracked, token never persisted; user advised to rotate PAT (was shared in chat)
+- Ready for Vercel import (default branch main); NEXT_PUBLIC_SITE_URL env var still to be set there

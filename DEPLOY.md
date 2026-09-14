@@ -28,17 +28,27 @@ console.log(await hash('NEW_PASSWORD'))
 
 ## 2. Pushing to GitHub
 
-The project already has a local git repository (branch `main`). From the project root:
+**This project is already connected and pushed to:**
+
+> **https://github.com/mahmoudmohamedxx1-hue/CHEFAA** (branch `main`)
+
+Branches on the remote:
+
+| Branch | Contents |
+|---|---|
+| `main` | **The Pharmacy app** (source, images, db, scripts) — default branch, import this into Vercel |
+| `research-data` | The original Chefaa scraping/research data (the old `main`), kept for reference |
+| `v0/add-vercel-link` | Old v0 build link (historical) |
+
+Day-to-day workflow after making changes:
 
 ```bash
-# 1. Create a new repo on github.com (no README, no .gitignore — we already have one)
-
-# 2. Connect it (replace <USERNAME> and <REPO> with yours)
-git remote add origin https://github.com/<USERNAME>/<REPO>.git
-
-# 3. Push
-git push -u origin main
+git add -A
+git commit -m "Describe what changed"
+git push                # origin/main is already set as upstream
 ```
+
+> When pushing from a new machine you will be asked to log in — use a GitHub **Personal Access Token** (Settings → Developer settings → Tokens) as the password.
 
 If you cloned/copied this folder without git history, start fresh:
 
@@ -47,7 +57,7 @@ git init
 git add -A
 git commit -m "The Pharmacy — bilingual AI-powered e-pharmacy"
 git branch -M main
-git remote add origin https://github.com/<USERNAME>/<REPO>.git
+git remote add origin https://github.com/mahmoudmohamedxx1-hue/CHEFAA.git
 git push -u origin main
 ```
 
