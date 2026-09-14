@@ -30,7 +30,7 @@ console.log(await hash('NEW_PASSWORD'))
 
 **This project is already connected and pushed to:**
 
-> **https://github.com/mahmoudmohamedxx1-hue/CHEFAA** (branch `main`)
+> **https://github.com/mahmoudmohamedxx1-hue/THE-PHARMACY** (branch `main`)
 
 Branches on the remote:
 
@@ -57,7 +57,7 @@ git init
 git add -A
 git commit -m "The Pharmacy — bilingual AI-powered e-pharmacy"
 git branch -M main
-git remote add origin https://github.com/mahmoudmohamedxx1-hue/CHEFAA.git
+git remote add origin https://github.com/mahmoudmohamedxx1-hue/THE-PHARMACY.git
 git push -u origin main
 ```
 
