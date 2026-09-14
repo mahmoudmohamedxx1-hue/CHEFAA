@@ -67,15 +67,32 @@ What stays out: `node_modules`, `.next`, `.env*`, dev logs (see `.gitignore`).
 ## 3. Deploying to Vercel
 
 1. Push to GitHub (step 2)
-2. On [vercel.com](https://vercel.com) → **Add New → Project** → import your repo
-3. Framework preset: **Next.js** (auto-detected). Leave build settings default.
-4. Add the environment variable:
+2. On [vercel.com](https://vercel.com) → **Add New → Project** → import **CHEFAA**
+3. Framework preset: **Next.js** (auto-detected)
+   - Root Directory: `./` (default — leave unchanged)
+   - Build Command: leave as default (Next.js handles it)
+4. Add the environment variable (Project → Settings → Environment Variables):
 
    | Key | Value |
    |---|---|
-   | `NEXT_PUBLIC_SITE_URL` | `https://your-domain.com` (used for SEO tags, sitemap, link previews) |
+   | `NEXT_PUBLIC_SITE_URL` | `https://<your-project>.vercel.app` (or your custom domain — used for SEO tags, sitemap, link previews) |
 
-5. Deploy
+   `DATABASE_URL` is **not required** — the app automatically falls back to the committed `db/custom.db`.
+5. Deploy, then open the URL Vercel shows in the dashboard (don't guess it — the project name may get a random suffix like `CHEFAA-xxxx`)
+
+### If you saw `404: NOT_FOUND` after importing
+
+That page appears when **no successful deployment exists** for the URL yet — the build had failed. The original cause in this repo was: bun (Vercel's installer, chosen because of `bun.lock`) does not run Prisma's postinstall, so the Prisma client was never generated and `next build` crashed with `Cannot find module '.prisma/client/default'`. This is now fixed (`postinstall: prisma generate` in `package.json`), plus:
+
+- `output: standalone` is auto-disabled on Vercel (it's only for VPS self-hosting)
+- `DATABASE_URL` falls back to the committed SQLite file automatically
+- the SQLite file + Prisma engine are traced into the serverless functions
+
+After pulling the latest `main`, Vercel rebuilds automatically (or hit **Deployments → ⋯ → Redeploy**). If a build still fails, open the deployment in the dashboard → **Building** log, and the exact error is shown at the bottom.
+
+### AI features on your own hosting
+
+The 3 AI features (Rx OCR, health assistant, interaction checker) call the AI service from the server-side API routes. On this sandbox they work out of the box; on your own Vercel account they need the AI service credentials configured as environment variables — otherwise the rest of the store works fine and the AI endpoints return a friendly error. Contact your AI provider for the key values.
 
 ### Important — SQLite on Vercel
 

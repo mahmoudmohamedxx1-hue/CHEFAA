@@ -58,3 +58,6 @@ db/*.db-wal
 
 # scraped-source data repo (kept out of the app repo; preserved on branch research-data)
 chefaa-source/
+
+# chat file uploads
+upload/

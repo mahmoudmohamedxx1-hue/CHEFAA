@@ -141,3 +141,25 @@ Stage Summary:
 - Live at https://github.com/mahmoudmohamedxx1-hue/CHEFAA: main = The Pharmacy (full history, ~25MB), research-data = original scraping data preserved, v0/add-vercel-link untouched
 - .env untracked, token never persisted; user advised to rotate PAT (was shared in chat)
 - Ready for Vercel import (default branch main); NEXT_PUBLIC_SITE_URL env var still to be set there
+
+---
+Task ID: 7
+Agent: Super Z (main agent)
+Task: Fix Vercel deployment 404 NOT_FOUND (user reported app doesn't open after hosting)
+
+Work Log:
+- VLM-read the user's screenshot: Vercel "404: NOT_FOUND Code: NOT_FOUND" page = no successful production deployment (build failed)
+- Reproduced the exact failure locally under Vercel conditions (bun install --frozen-lockfile, no .env, next build): "Cannot find module '.prisma/client/default'" during Collecting page data -> build exit 1
+- Root cause 1: bun (used by Vercel due to committed bun.lock) does not run dependency postinstall scripts, so @prisma/client never generated
+- Root cause 2: DATABASE_URL only existed in untracked .env (repo hygiene fix from task 6), so runtime had no DB path
+- Root cause 3: output:"standalone" + VPS cp commands in build script — Vercel-incompatible leftovers
+- Fixes: postinstall "prisma generate" in package.json; src/lib/db.ts DATABASE_URL fallback to <cwd>/db/custom.db (+ query log only in dev); next.config.ts disables standalone on Vercel (VERCEL env) and adds outputFileTracingIncludes for db file + prisma engine into serverless functions; scripts/postbuild.mjs Vercel-aware standalone packager (copies static/public/db/prisma only for self-host)
+- Added .env.example and full README.md (features, quick start, accounts, Vercel steps, structure, branch map)
+- Verified: fresh bun install generates client (postinstall); VERCEL=1 bunx next build exit 0 with all 30 routes; bun run build packages standalone with static/public/db; standalone server runtime smoke test without .env: home 200, /api/products real data, product SSR 200, /api/categories 200; lint clean
+- Updated DEPLOY.md: exact Vercel import steps (root dir ./, no build override, DATABASE_URL not required), 404 explainer + redeploy instructions, AI-credentials note for user's own hosting
+- Committed and pushed to github.com/mahmoudmohamedxx1-hue/CHEFAA main
+
+Stage Summary:
+- Vercel build is now reproducibly green locally under identical conditions (bun, frozen lockfile, no env)
+- User action needed: pull/redeploy on Vercel (or Vercel auto-rebuilds on push), set NEXT_PUBLIC_SITE_URL, open the URL from the dashboard
+- Known runtime caveats on Vercel: SQLite writes ephemeral (documented), AI routes need provider credentials (documented)
