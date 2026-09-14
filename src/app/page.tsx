@@ -9,8 +9,10 @@ export const revalidate = 300;
 export default async function Home() {
   const [categories, featured, popular] = await Promise.all([
     getCategories(),
-    getProducts({ featured: true, limit: 8 }),
-    getProducts({ sort: "rating", limit: 8 }),
+    // Homepage sections only merchandise in-stock items with real photos —
+    // out-of-stock or artwork-fallback hero cards read as broken images.
+    getProducts({ featured: true, limit: 8, inStock: true, hasImage: true }),
+    getProducts({ sort: "rating", limit: 8, inStock: true, hasImage: true }),
   ]);
 
   return (

@@ -45,8 +45,8 @@ export function HomeView({ initial }: { initial?: HomeInitialData }) {
   // Server-rendered initial data (SSR/ISR): content paints with the HTML —
   // react-query then refreshes in the background when the cache goes stale.
   const { data: categories = [] } = useCategories(initial?.categories)
-  const { data: featured } = useProducts({ featured: 'true', limit: 8 }, true, initial?.featured)
-  const { data: popular } = useProducts({ sort: 'rating', limit: 8 }, true, initial?.popular)
+  const { data: featured } = useProducts({ featured: 'true', limit: 8, inStock: 'true', hasImage: 'true' }, true, initial?.featured)
+  const { data: popular } = useProducts({ sort: 'rating', limit: 8, inStock: 'true', hasImage: 'true' }, true, initial?.popular)
   const recentIds = useRecent((s) => s.ids)
   const { data: recentData } = useProductsByIds(recentIds.slice(0, 5), recentIds.length > 0)
 
@@ -237,7 +237,7 @@ export function HomeView({ initial }: { initial?: HomeInitialData }) {
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {featuredItems.map((p) => <ProductCard key={p.id} p={p} />)}
+            {featuredItems.map((p, i) => <ProductCard key={p.id} p={p} eager={i < 4} />)}
           </div>
         )}
       </section>

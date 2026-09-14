@@ -23,7 +23,7 @@ export function fmtPrice(v: number, lang: Lang) {
   return lang === 'ar' ? `${n} جنيه` : `EGP ${n}`
 }
 
-export function ProductCard({ p }: { p: P }) {
+export function ProductCard({ p, eager = false }: { p: P; eager?: boolean }) {
   const { lang } = useLang()
   const add = useCart((s) => s.add)
   const wishlist = useWishlist()
@@ -62,6 +62,7 @@ export function ProductCard({ p }: { p: P }) {
         <ProductImage
           slug={p.slug} category={catSlug} brand={p.brand} imageUrl={p.imageUrl} alt={name}
           zoom
+          eager={eager}
           className="w-full aspect-square rounded-xl border-border/40"
           rounded="rounded-xl"
         />

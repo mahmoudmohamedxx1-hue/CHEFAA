@@ -15,6 +15,7 @@ export async function GET(req: NextRequest) {
       brand: sp.get('brand') || undefined,
       rx: (sp.get('rx') as 'true' | 'false' | null) || undefined,
       inStock: sp.get('inStock') === 'true',
+      hasImage: sp.get('hasImage') === 'true',
       featured: sp.get('featured') === 'true',
       ids: (sp.get('ids') || '').split(',').filter(Boolean),
       page: num(sp.get('page')),

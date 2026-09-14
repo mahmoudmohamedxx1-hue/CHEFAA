@@ -41,14 +41,17 @@ function ArtFallback({ slug, category, brand }: { slug: string; category: string
 }
 
 export function ProductImage({
-  slug, category, brand, imageUrl, className = '', rounded = 'rounded-2xl', zoom = false, alt,
+  slug, category, brand, imageUrl, className = '', rounded = 'rounded-2xl', zoom = false, alt, eager = false,
 }: {
   slug: string; category: string; brand: string; imageUrl?: string | null
-  className?: string; rounded?: string; zoom?: boolean; alt?: string
+  className?: string; rounded?: string; zoom?: boolean; alt?: string; eager?: boolean
 }) {
   const [failed, setFailed] = useState(false)
   const [loaded, setLoaded] = useState(false)
   const showPhoto = !!imageUrl && !failed
+  // Above-fold (eager) images render visible immediately — no fade-in gate,
+  // so content paints with the server HTML even before hydration runs.
+  const visible = eager || loaded
 
   return (
     <div
@@ -59,17 +62,18 @@ export function ProductImage({
       <div className="absolute inset-0 bg-gradient-to-b from-muted/60 via-muted/20 to-white" />
       {showPhoto ? (
         <>
-          {!loaded && <div className="absolute inset-0 bg-muted/40 animate-pulse" />}
+          {!visible && <div className="absolute inset-0 bg-muted/40 animate-pulse" />}
           <img
             src={imageUrl!}
             alt={alt || ''}
             width={600}
             height={600}
-            loading="lazy"
-            decoding="async"
+            loading={eager ? 'eager' : 'lazy'}
+            fetchPriority={eager ? 'high' : 'auto'}
+            decoding={eager ? 'sync' : 'async'}
             onLoad={() => setLoaded(true)}
             onError={() => setFailed(true)}
-            className={`relative z-10 w-full h-full object-contain p-[7%] transition-all duration-500 ${zoom ? 'group-hover:scale-[1.06]' : ''} ${loaded ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'}`}
+            className={`relative z-10 w-full h-full object-contain p-[7%] transition-all duration-500 ${zoom ? 'group-hover:scale-[1.06]' : ''} ${visible ? "opacity-100 blur-0" : "opacity-0 blur-sm"}`}
           />
         </>
       ) : (

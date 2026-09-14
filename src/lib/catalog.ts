@@ -65,6 +65,7 @@ export interface ProductQueryParams {
   brand?: string
   rx?: 'true' | 'false'
   inStock?: boolean
+  hasImage?: boolean
   featured?: boolean
   ids?: string[]
   page?: number
@@ -83,6 +84,7 @@ export async function getProducts(params: ProductQueryParams): Promise<ProductsD
   if (params.rx === 'true') where.prescriptionRequired = true
   if (params.rx === 'false') where.prescriptionRequired = false
   if (params.inStock) where.stock = { gt: 0 }
+  if (params.hasImage) where.imageUrl = { not: '' }
   if (params.min !== undefined || params.max !== undefined) {
     where.price = {}
     if (params.min !== undefined && !Number.isNaN(params.min)) where.price.gte = params.min
@@ -100,11 +102,11 @@ export async function getProducts(params: ProductQueryParams): Promise<ProductsD
 
   let orderBy: Prisma.ProductOrderByWithRelationInput
   switch (params.sort) {
-    case 'price-asc': orderBy = { price: 'asc' }; break
-    case 'price-desc': orderBy = { price: 'desc' }; break
-    case 'rating': orderBy = { rating: 'desc' }; break
-    case 'newest': orderBy = { createdAt: 'desc' }; break
-    default: orderBy = { popularity: 'desc' }
+    case 'price-asc': orderBy = [{ price: 'asc' }, { popularity: 'desc' }]; break
+    case 'price-desc': orderBy = [{ price: 'desc' }, { popularity: 'desc' }]; break
+    case 'rating': orderBy = [{ rating: 'desc' }, { reviewCount: 'desc' }, { popularity: 'desc' }]; break
+    case 'newest': orderBy = [{ createdAt: 'desc' }]; break
+    default: orderBy = [{ popularity: 'desc' }, { rating: 'desc' }]
   }
 
   const [items, total, brandAgg] = await Promise.all([
